@@ -88,14 +88,15 @@
         position: absolute;
         left: 0;
         content: '';
-        border: 1px solid;
-        width: 20px;
-        height: 20px;
+        border: 1px solid @border;
+        width: 16px;
+        height: 16px;
         background: transparent;
     }
     &.checked {
         &:before {
-            background: url(../images/svg/check.svg) no-repeat transparent;
+            background: url(../images/svg/check.svg) no-repeat @green;
+            border-color: @green;
             background-position: center;
         }
     }
@@ -372,12 +373,18 @@ a {
     .header-bottom {
         .row;
         border-bottom: 1px solid @border;
+        .container {
+            position: relative;
+        }
         nav, .header-buttons {
             .inline;
             .middle;
         }
-        nav {
+        .main-nav {
             width: ~'calc(100% - 255px)';
+            @media @tab {
+                width: ~'calc(100% - 243px)';
+            }
             ul {
                 .row;
                 list-style: none;
@@ -386,13 +393,71 @@ a {
                 li {
                     .middle;
                     .inline;
+                    position: relative;
                     & + li {
                         margin-left: 40px;
+                        @media @tab {
+                            margin-left: 20px;
+                        }
+                    }
+                    & > a {
+                        padding: 20px 0;
                     }
                     a {
                         color: @black;
                         font-size: 18px;
                         font-weight: 700;
+                        &:hover {
+                            color: @green;
+                        }
+                        @media @tab {
+                            font-size: 16px;
+                        }
+                    }
+                    .dropdown-pane {
+                        border: none;
+                        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+                        padding: 10px 20px;
+                        display: inline-block;
+                        min-width: 240px;
+                        width: auto;
+                    }
+                    ul {
+                        li {
+                            display: block;
+                            & + li {
+                                margin-left: 0;
+                            }
+                            color: @black;
+                            font-size: 14px;
+                            font-weight: 700;
+                            margin: 0 0 5px;
+                            text-align: left;
+                            display: block;
+                            & + li {
+                                margin-left: 0;
+                            }
+                            &.title {
+                                font-size: 10px;
+                                font-weight: 700;
+                                line-height: 1.4;
+                                letter-spacing: 0.3px;
+                                color: @gray;
+                                text-transform: uppercase;
+                            }
+                            a {
+                                margin: 0;
+                                font-weight: 400;
+                                color: @black;
+                                font-size: 14px;
+                                @media @tab {
+                                    word-break: break-word;
+                                }
+                                &:hover {
+                                    color: @green;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -407,19 +472,132 @@ a {
                 padding: 18px 20px;
                 color: @black;
                 border-left: 1px solid @border;
+                @media @tab {
+                    font-size: 16px;
+                }
                 &:last-child {
                     border-right: 1px solid @border;
                 }
-                &:first-child {
-                    i {
+                i {
+                    font-size: 12px;
+                    &.icon-burger {
                         .inline;
                         margin-left: 25px;
+                    }
+                    &.icon-search-header {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        .burger-menu {
+            background: @wht;
+            box-shadow: 0 20px 20px 0 rgba(49, 49, 49, 0.21);
+            padding: 50px 10px;
+            width: ~'calc(100% - 100px)';
+            border-top: 1px solid @border;
+            nav {
+                .row;
+                text-align: left;
+                width: 100%;
+                ul {
+                    list-style: none;
+                    margin: 0 50px;
+                    padding: 0;
+                    .inline;
+                    .top;
+                    width: ~'calc(25% - 100px)';
+                    @media @tab {
+                        margin: 0 20px;
+                        width: ~'calc(25% - 40px)';
+                    }
+                    li {
+                        color: @black;
+                        font-size: 14px;
+                        font-weight: 700;
+                        margin: 0 0 14px;
+                        text-align: left;
+                        display: block;
+                        & + li {
+                            margin-left: 0;
+                        }
+                        a {
+                            margin: 0;
+                            font-weight: 400;
+                            color: @black;
+                            font-size: 14px;
+                            @media @tab {
+                                word-break: break-word;
+                            }
+                            &:hover {
+                                color: @green;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .fixed-show {
+        display: none!important;
+    }
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        background: @wht;
+        .header-top, .header-middle {
+            display: none;
+        }
+        .fixed-show {
+            display: inline-block!important;
+            .middle;
+        }
+        .fixed-header__logo {
+            img {
+                max-height: 40px;
+                @media @tab {
+                    max-height: 20px;
+                }
+            }
+        }
+        .fixed-header__phones {
+            i {
+                font-size: 18px;
+                margin-left: 0;
+            }
+        }
+        .header-bottom {
+            .main-nav {
+                width: ~'calc(100% - 455px)';
+                text-align: center;
+                @media @tab {
+                    width: ~'calc(100% - 242px)';
+                }
+                ul {
+                    li {
+                        & + li {
+                            @media @xs {
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-buttons {
+                span {
+                    @media @tab {
+                        display: none;
                     }
                 }
                 i {
                     font-size: 12px;
-                    &.icon-search-header {
-                        font-size: 16px;
+                    &.icon-burger {
+                        @media @tab {
+                            margin-left: 0;
+                        }
                     }
                 }
             }
@@ -479,6 +657,9 @@ a {
                     font-size: 18px;
                     font-weight: 700;
                     margin: 0 0 30px;
+                    @media @tab {
+                        font-size: 16px;
+                    }
                 }
             }
             ul {
@@ -644,24 +825,23 @@ a {
         position: relative;
         i, button {
             position: absolute;
-            top: 50%;
-            transform: translate(0, -50%);
         }
         input {
             margin: 0;
             .appearance;
-            border: none;
-            box-shadow: none;
+            border: none!important;
+            box-shadow: none!important;
             padding: 0 180px 0 80px;
             height: 100px;
             font-size: 24px;
             font-weight: 300;
-            color: @gray;
+            color: @black;
         }
         i {
             font-size: 24px;
             color: @green;
             left: 30px;
+            top: 40px;
         }
         button {
             text-transform: uppercase;
@@ -672,6 +852,56 @@ a {
             letter-spacing: 0.5px;
             padding: 18px 55px;
             right: 20px;
+            top: 26px;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 180px 40px 80px;
+            .ui-autocomplete-category {
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                color: @gray;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+            li:not(.ui-autocomplete-category) {
+                div, a {
+                    font-size: 18px;
+                    line-height: 1.56;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover {
+                        color: @green;
+                        &:before {
+                            content: "\e901";
+                            font-family: 'icomoon' !important;
+                            speak: none;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-variant: normal;
+                            text-transform: none;
+                            line-height: 1;
+
+                            /* Better Font Rendering =========== */
+                            -webkit-font-smoothing: antialiased;
+                            -moz-osx-font-smoothing: grayscale;
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -5.5px;
+                            left: -40px;
+                            transform: rotate(180deg);
+                            display: block;
+                            font-size: 11px;
+                            color: @green;
+                        }
+                    }
+                }
+                & + .ui-autocomplete-category {
+                    margin-top: 20px;
+                }
+            }
         }
     }
 }
@@ -733,6 +963,8 @@ a {
             .inline;
             .top;
             width: 25%;
+            margin-bottom: 40px;
+            padding-right: 20px;
             .title {
                 font-size: 18px;
                 font-weight: 700;
@@ -764,6 +996,21 @@ a {
                 &.purple {
                     &:before {
                         background: #ca50d4;
+                    }
+                }
+                &.green {
+                    &:before {
+                        background: #10a554;
+                    }
+                }
+                &.red {
+                    &:before {
+                        background: #db3d3d;
+                    }
+                }
+                &.blue {
+                    &:before {
+                        background: #4d8ce5;
                     }
                 }
             }
@@ -870,8 +1117,283 @@ a {
     }
 }
 
+.text-page {
+    max-width: 840px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
 /* Wrapper end */
 
 /* Reveal */
 
+.reveal {
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: none;
+    &.reveal-small {
+        max-width: 435px;
+        padding: 30px 40px 50px;
+    }
+    &.reveal-big {
+        max-width: 900px;
+        padding: 50px 40px;
+    }
+    .close-button {
+        color: @black;
+        opacity: 1;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 18px;
+    }
+    .reveal-phones__list {
+        .row;
+        .reveal-phones__item {
+            .inline;
+            .top;
+            width: 50%;
+            padding-right: 10px;
+            margin-bottom: 15px;
+            a {
+                font-size: 18px;
+                font-weight: 700;
+                color: @black;
+                display: block;
+                &.green-item {
+                    color: @green;
+                    p {
+                        color: @green;
+                    }
+                }
+                i {
+                    width: 36px;
+                    height: 36px;
+                    .inline;
+                    font-size: 13.5px;
+                    border: 1px solid @green;
+                    border-radius: 50%;
+                    line-height: 35px;
+                    margin-bottom: 10px;
+                }
+            }
+            p {
+                text-transform: uppercase;
+                color: @gray;
+                margin: 0;
+                font-size: 10px;
+                line-height: 1.4;
+                letter-spacing: 0.3px;
+                padding: 0 15px;
+            }
+        }
+    }
+    .reveal-callback {
+        display: block;
+        text-align: center;
+        border: 1px solid @border;
+        color: @green;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 18px 20px;
+        line-height: 1;
+        margin-top: 10px;
+    }
+    h2 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.67;
+        margin: 0;
+    }
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 2.08;
+        margin: 0;
+        & + .reveal-phones__list {
+            margin-top: 15px;
+        }
+    }
+    .big {
+        font-size: 18px;
+        line-height: 1.67;
+        a {
+            color: @black;
+            font-weight: 700;
+        }
+    }
+    .text-center {
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 16px;
+        }
+    }
+    form {
+        &.check-form {
+            .row;
+            div {
+                .inline;
+                .top;
+                &.full {
+                    width: 100%;
+                }
+                &.half {
+                    width: ~'calc(50% - 10px)';
+                    margin-right: 20px;
+                    &:nth-child(even) {
+                        margin-right: 0;
+                    }
+                }
+            }
+            input {
+                &[type='submit'] {
+                    padding: 18px 50px;
+                    margin: 20px 0 30px;
+                    display: inline-block;
+                    width: auto;
+                }
+            }
+            .btn-group {
+                .row;
+                label {
+                    .inline;
+                    .top;
+                    width: 25%;
+                    background: transparent;
+                    border: 1px solid @border;
+                    color: @gray;
+                    border-radius: 0;
+                    height: 50px;
+                    padding: 3px 0;
+                    & + label {
+                        border-left-color: transparent;
+                    }
+                    &.active {
+                        box-shadow: none;
+                        border-color: @green;
+                        span {
+                            &:first-of-type {
+                                color: @green;
+                            }
+                        }
+                    }
+                    &.focus {
+                        outline: none;
+                    }
+                    &:first-child {
+                        font-size: 18px;
+                        line-height: 1.44;
+                        line-height: 40px;
+                        &.active {
+                            color: @green;
+                        }
+                    }
+                    span {
+                        display: block;
+                        &:first-of-type {
+                            font-size: 18px;
+                            line-height: 1.44;
+                        }
+                        &:last-of-type {
+                            font-size: 10px;
+                            font-weight: 700;
+                            line-height: 1.4;
+                            letter-spacing: 0.3px;
+                        }
+                    }
+                }
+            }
+        }
+        textarea {
+            .appearance;
+            box-shadow: none;
+            border: 1px solid @border;
+            min-height: 120px;
+            &:focus {
+                border-color: @green;
+            }
+        }
+        input {
+            &:not([type="submit"]), &:not([type="checkbox"]) {
+                .appearance;
+                box-shadow: none;
+                height: 50px;
+                border: 1px solid @border;
+                &:focus {
+                    border-color: @green;
+                }
+            }
+            &[type='submit'] {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+                background: @green;
+                color: @wht;
+                text-transform: uppercase;
+                border: none;
+                box-shadow: none;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                padding: 18px 20px;
+                .appearance;
+            }
+            &[data-toggle="datepicker"] {
+                background: url(../images/svg/calendar.svg) no-repeat transparent;
+                background-position: 96% center;
+            }
+        }
+        .checkbox {
+            font-size: 10px;
+            line-height: 1.2;
+            a {
+                display: block;
+                color: @black;
+                font-size: 10px;
+                line-height: 2.6;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            input {
+                height: 0;
+            }
+        }
+    }
+}
+
 /* Reveal end */
+
+/* Datepicker */
+
+.datepicker-panel > ul > li {
+    line-height: 30px;
+    &[data-view="month current"] {
+        font-weight: 700;
+    }
+    &:hover {
+        background-color: @border;
+    }
+    &.muted {
+        background-color: @border;
+        color: @gray;
+    }
+}
+.datepicker-panel > ul > li.highlighted {
+    background: @green;
+}
+.datepicker-panel > ul > li.picked, .datepicker-panel > ul > li.picked:hover {
+    color: @wht;
+}
+.datepicker-top-left, .datepicker-top-right {
+    border-top-color: @border;
+}
+.datepicker-top-left::before, .datepicker-top-right::before {
+    border-bottom-color: @border;
+}
+
+/* Datepicker end */

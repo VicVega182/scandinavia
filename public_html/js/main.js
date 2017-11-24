@@ -55,18 +55,90 @@ function deactivateSubmenu(row) {
 
 $(document).ready(function () {
 
+    $fixed = false;
+
+    $(function () {
+        $.widget("custom.catcomplete", $.ui.autocomplete, {
+            _create: function () {
+                this._super();
+                this.widget().menu("option", "items", "> :not(.ui-autocomplete-category)");
+            },
+            _renderMenu: function (ul, items) {
+                var that = this,
+                        currentCategory = "";
+                $.each(items, function (index, item) {
+                    var li;
+                    if (item.category != currentCategory) {
+                        ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
+                        currentCategory = item.category;
+                    }
+                    li = that._renderItemData(ul, item);
+                    if (item.category) {
+                        li.attr("aria-label", item.category + " : " + item.label);
+                    }
+                });
+            }
+        });
+        var data = [
+            {label: "Хирург", category: "Специализация"},
+            {label: "Невролог", category: "Специализация"},
+            {label: "Отоларинголог", category: "Специализация"},
+            {label: "Проктолог", category: "Специализация"},
+            {label: "Эстетическая хирургия", category: "Направление"},
+            {label: "Неврология", category: "Направление"},
+            {label: "Прием отолоринголога", category: "Направление"},
+            {label: "Прием проктолога", category: "Направление"},
+            {label: "Хирургия", category: "Направление"}
+        ];
+
+        $("#search").catcomplete({
+            delay: 0,
+            source: data,
+            appendTo: "#appendSearch"
+        });
+    });
+
     /* Foundation */
     $(document).foundation();
 
     /* Баннер слайдер */
-    if($('.banner-slider').ex()) {
+    if ($('.banner-slider').ex()) {
         $('.banner-slider').slick({
             dots: true,
             prevArrow: '.banner-controls .slick-prev',
             nextArrow: '.banner-controls .slick-next'
         });
     }
-}).on('change.zf.tabs', '#address', function() {
+    
+    /* Инициализация datepicker */
+    $(function() {
+      $('[data-toggle="datepicker"]').datepicker({
+        autoHide: true,
+        zIndex: 2048,
+        language: 'ru-RU',
+        weekStart: 1        
+      });
+    });
+    
+}).on('change.zf.tabs', '#address', function () {
+    /* Меняем плашку на карте/список на главной при переключении */
     var $this = $(this);
     $this.toggleClass('removeShadow');
+}).on('scroll', document, function () {
+    /* Фиксированный хидер при скролле */
+    var $this = $(this);
+    var header = $('.header');
+    if ($this.scrollTop() >= header.outerHeight() && !$fixed) {
+        header.addClass('fixed');
+        $('body').css('padding-top', header.outerHeight() + "px");
+        $fixed = true;
+    } else if ($this.scrollTop() < header.outerHeight() && $fixed) {
+        header.removeClass('fixed');
+        $('body').css('padding-top', "0px");
+        $fixed = false;
+    }
+}).on('change', '.checkbox input', function () {
+    /* Стилизованный чекбокс */
+    var $this = $(this);
+    $this.closest('label').toggleClass('checked');
 });
