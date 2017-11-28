@@ -110,6 +110,14 @@ $(document).ready(function () {
         });
     }
     
+    /* Текстовый слайдер */
+    if ($('.text-slider').ex()) {
+        $('.text-slider__slides').slick({
+            prevArrow: '.text-slider__prev',
+            nextArrow: '.text-slider__next'
+        });
+    }
+    
     /* Инициализация datepicker */
     $(function() {
       $('[data-toggle="datepicker"]').datepicker({

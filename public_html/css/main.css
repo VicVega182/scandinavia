@@ -187,6 +187,18 @@ input,
 .btn {
   font-family: 'Roboto', sans-serif;
 }
+h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.47;
+  margin: 0 0 10px;
+}
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 5px;
+}
 .container {
   max-width: 1240px;
   padding: 0 20px;
@@ -1078,6 +1090,160 @@ a {
   max-width: 840px;
   padding: 0 20px;
   margin: 0 auto;
+}
+.text-page p {
+  font-size: 18px;
+  line-height: 1.67;
+  margin: 0 0 2.5em;
+}
+.text-page ul:not(.breadcrumbs) {
+  margin: 0 0 2.5em 1.25em;
+}
+.text-page ul:not(.breadcrumbs) li {
+  font-size: 18px;
+  line-height: 1.67;
+  margin: 0 0 0.5em;
+}
+.text-slider {
+  margin-bottom: 3em;
+}
+.text-slider .text-slider__slides .slick-slide iframe {
+  width: 100%;
+  height: 480px;
+}
+.text-slider .text-slider__slides .slick-slide img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  font-family: "object-fit: cover";
+}
+.text-slider .text-slider__controls {
+  letter-spacing: -0.4em;
+  margin-top: 10px;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows,
+.text-slider .text-slider__controls .text-slider__controls--info {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: middle;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows {
+  letter-spacing: -0.4em;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows a {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #313131;
+  border: 1px solid #dddddd;
+  line-height: 50px;
+  font-size: 9px;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows a:hover {
+  border-color: #313131;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows a.text-slider__next {
+  transform: rotate(180deg);
+  border-right-color: transparent;
+}
+.text-slider .text-slider__controls .text-slider__controls--arrows a.text-slider__next:hover {
+  border-right-color: #313131;
+}
+.breadcrumbs {
+  margin: 40px 0;
+}
+.breadcrumbs li {
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  color: #a7a7a7;
+}
+.breadcrumbs li a {
+  color: #a7a7a7;
+}
+.breadcrumbs li:not(:last-child):after {
+  margin: 0 5px;
+}
+.doctor-card {
+  letter-spacing: -0.4em;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+}
+.doctor-card .doctor-card__img,
+.doctor-card .doctor-card__txt {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: top;
+}
+.doctor-card .doctor-card__img {
+  width: 265px;
+  height: 400px;
+}
+.doctor-card .doctor-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  font-family: "object-fit: cover";
+}
+.doctor-card .doctor-card__txt {
+  width: calc(100% - 265px);
+  padding-left: 20px;
+}
+.doctor-card .doctor-card__txt h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 5px;
+}
+.doctor-card .doctor-card__txt .doctor-card__profession {
+  display: block;
+  font-size: 18px;
+  margin: 0 0 13px;
+}
+.doctor-card .doctor-card__txt .doctor-card__info {
+  font-size: 14px;
+  line-height: 1.29;
+  margin: 0 0 3px;
+}
+.doctor-card .doctor-card__txt .doctor-card__btn {
+  letter-spacing: -0.4em;
+  margin: 0 0 20px;
+}
+.doctor-card .doctor-card__txt .doctor-card__btn a {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 1.71;
+  color: #10a554;
+  text-decoration: underline;
+}
+.doctor-card .doctor-card__txt .doctor-card__btn a + a {
+  margin-left: 20px;
+}
+.doctor-card .doctor-card__txt .doctor-card__check {
+  display: inline-block;
+  border: 1px solid #f4a13c;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 18px 30px;
+  color: #313131;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.doctor-card .doctor-card__txt .doctor-card__graphic {
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 265px;
+  color: #a7a7a7;
+}
+.doctor-card .doctor-card__txt .doctor-card__graphic a {
+  color: #a7a7a7;
 }
 /* Wrapper end */
 /* Reveal */
