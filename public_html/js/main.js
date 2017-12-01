@@ -109,7 +109,7 @@ $(document).ready(function () {
             nextArrow: '.banner-controls .slick-next'
         });
     }
-    
+
     /* Текстовый слайдер */
     if ($('.text-slider').ex()) {
         $('.text-slider__slides').slick({
@@ -117,17 +117,32 @@ $(document).ready(function () {
             nextArrow: '.text-slider__next'
         });
     }
-    
+
+    /* Блог слайдер */
+    if ($('.blog-slider').ex()) {
+        $('.blog-slider__slides').slick({
+            slidesToShow: 2,
+            prevArrow: '.blog-slider__prev',
+            nextArrow: '.blog-slider__next'
+        });
+    }
+
+
     /* Инициализация datepicker */
-    $(function() {
-      $('[data-toggle="datepicker"]').datepicker({
-        autoHide: true,
-        zIndex: 2048,
-        language: 'ru-RU',
-        weekStart: 1        
-      });
+    $(function () {
+        $('[data-toggle="datepicker"]').datepicker({
+            autoHide: true,
+            zIndex: 2048,
+            language: 'ru-RU',
+            weekStart: 1
+        });
     });
-    
+
+    /* Стилизация скроллбара */
+    if ($('.scrollbar-inner').ex()) {
+        $('.scrollbar-inner').scrollbar();
+    }
+
 }).on('change.zf.tabs', '#address', function () {
     /* Меняем плашку на карте/список на главной при переключении */
     var $this = $(this);
@@ -149,4 +164,12 @@ $(document).ready(function () {
     /* Стилизованный чекбокс */
     var $this = $(this);
     $this.closest('label').toggleClass('checked');
+}).on('afterChange', '.text-slider__slides', function (currentSlide) {
+    var $this = $(this);
+    $this.closest('.text-slider').find('.text-slider__controls--counter i').text(+$this.find('.slick-current').attr('data-slick-index') + 1);
+    $this.closest('.text-slider').find('.text-slider__controls--text').text($this.find('.slick-current').attr('data-text'));
+}).on('click touchstart', '.show-more-doctors', function () {
+    var $this = $(this);
+    $this.closest('.doctors-list__item').find('.doctors-hidden-text').slideToggle();
+    $this.find('span').toggleText('Подробнее', 'Скрыть');
 });

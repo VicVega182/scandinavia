@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Врач</title>
+        <title>Ассортимент и цены</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -20,6 +20,7 @@
         <script src="js/jquery.menu-aim.js"></script><!-- Menu like Amazon -->
         <script src="js/datepicker.js"></script><!-- Datepicker -->
         <script src="js/datepicker.ru-RU.js"></script><!-- Datepicker russian -->
+        <script src="js/jquery.scrollbar.min.js"></script><!-- Scrollbar style -->
         <script src="js/main.js"></script>
         <!-- SCRIPT END -->
 
@@ -30,6 +31,7 @@
         <link rel="stylesheet" href="css/btnInput.css">
         <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/datepicker.css"/>
+        <link rel="stylesheet" href="css/jquery.scrollbar.css"/>
         <link rel="stylesheet" href="css/main.css">
         <!-- STYLE END -->
 
@@ -169,131 +171,205 @@
             </div>
         </header>
         <div class="wrapper">
-            <div class="text-page">
+            <div class="container">
                 <nav role="navigation">
                     <ul class="breadcrumbs">
                         <li><a href="#">Главная</a></li>
-                        <li><a href="#">Врачи</a></li>
+                        <li><a href="#">Ассортимент и цены</a></li>
                     </ul>
                 </nav>
-                <div class="doctor-card">
-                    <div class="doctor-card__img">
-                        <img src="images/doc.jpg">
-                    </div>
-                    <div class="doctor-card__txt">
-                        <h1>Бешляга Татьяна Валерьевна</h1>
-                        <i class="doctor-card__profession">Врач функциональной диагностики, Невролог</i>
-                        <p class="doctor-card__info">Заведующая отделением неврологии клиники «Скандинавия». Врач высшей квалификационной категории, Ведущий специалист</p>
-                        <div class="doctor-card__btn">
-                            <a href="#">Центральная клиника</a>
-                            <a href="#">Северная клиника</a>
-                        </div>
-                        <a data-open="revealCheck" class="doctor-card__check">Записаться на прием</a>
-                        <p class="doctor-card__graphic">График работы и часы приема врача уточняйте по телефону <a href="tel:+7 (812) 600-77-77">+7 (812) 600-77-77</a>.</p>
-                    </div>
+                <h1>Ассортимент и цены</h1>
+            </div>
+            <div class="search-block small-padding">
+                <div class="container">
+                    <form action="post" id='appendSearch'>
+                        <i class="icon-search-header"></i>
+                        <input id='search' type="text" placeholder="Введите наименование препарата">
+                        <button type="submit">Искать</button>
+                    </form>
                 </div>
-                <h2>О враче</h2>
-                <p>До августа 2014 года — Доцент кафедры медицинской информатики и физики Северо-Западный государственного университета им. И.И. Мечникова. Сфера научных интересов — медицинская статистика; использование современных информационных технологий для организации работы научных сотрудников; построение логистики научного исследования; внедрение информационных технологий в здравоохранение, в частности, в неврологии.</p>
-                <h3>Образование</h3>
-                <ul>
-                    <li>Окончила СПб ГМУ им. Академика И.П. Павлова в 1998г.</li>
-                    <li>Прошла постдипломное обучение в интернатуре и ординатуре кафедры неврологии и нейрохирургии СПб ГМУ им. Акад. И.П. Павлова.</li>
-                    <li>Участник международного исследования PROFESS.</li>
-                </ul>
-                <h3>Направления деятельности и научные интересы</h3>
-                <p>До августа 2014 года — Доцент кафедры медицинской информатики и физики Северо-Западный государственного университета им. И.И. Мечникова. Сфера научных интересов — медицинская статистика; использование современных информационных технологий для организации работы научных сотрудников; построение логистики научного исследования; внедрение информационных технологий в здравоохранение, в частности, в неврологии.</p>
-                <div class="text-slider">
-                    <div class="text-slider__slides">
-                        <div data-text="Неврология"><iframe src="https://www.youtube.com/embed/eYdcaCfWaLY" frameborder="0" gesture="media" allowfullscreen></iframe></div>
-                        <div data-text="Криптография"><iframe src="https://www.youtube.com/embed/eYdcaCfWaLY" frameborder="0" gesture="media" allowfullscreen></iframe></div>
-                    </div>
-                    <div class="text-slider__controls">
-                        <div class="text-slider__controls--arrows">
-                            <a class="text-slider__prev"><i class="icon-arrow"></i></a>
-                            <a class="text-slider__next"><i class="icon-arrow"></i></a>
-                        </div>
-                        <div class="text-slider__controls--info">
-                            <span class="text-slider__controls--counter">
-                                <i>1</i>/2
-                            </span>
-                            <span class="text-slider__controls--text">Неврология</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-slider">
-                    <h2>Статьи в блоге</h2>
-                    <div class="blog-slider__slides">
-                        <a href="#" class="blog-slider__item">
-                            <img src="images/article-1.jpg">
-                            <p class="date">10 июля 2017</p>
-                            <p class="name">Победа над болью</p>
-                            <p class="text">Страдания пациентов от болевых ощущений просто недопустимы, но можно ли взять боль под контроль — об этом рассказали специалисты клиники …</p>
-                        </a>
-                        <a href="#" class="blog-slider__item">
-                            <img src="images/article-2.jpg">
-                            <p class="date">29 июня 2017</p>
-                            <p class="name">Вода вместо скальпеля</p>
-                            <p class="text">Интервью с нейрохирургом Олегом Викентьевичем Острейко и неврологом Артемом Александровичем Кошкиным о новом методе удаления грыж.</p>
-                        </a>
-                        <a href="#" class="blog-slider__item">
-                            <img src="images/article-1.jpg">
-                            <p class="date">10 июля 2017</p>
-                            <p class="name">Победа над болью</p>
-                            <p class="text">Страдания пациентов от болевых ощущений просто недопустимы, но можно ли взять боль под контроль — об этом рассказали специалисты клиники …</p>
-                        </a>
-                    </div>
-                    <div class="blog-slider__controls">
-                        <a class="blog-slider__prev"><i class="icon-arrow"></i></a>
-                        <a class="blog-slider__next"><i class="icon-arrow"></i></a>
-                    </div>
-                </div>
-                <div class="review-block">
-                    <h2>Отзывы</h2>
-                    <div class="review-block__list">
-                        <div class="review-block__item">
-                            <p class="name">Ирина Евгеньевна Львова <span class="date">05 апреля 2017</span></p>
-                            <p class="text">Хотелось бы поблагодарить моего лечащего доктора Бешлягу Татьяну Валерьевну за ее профессионализм и внимательное отношение. Врач-чудо! Буквально поставила на ноги, теперь, если потребуется, то только к ней. Внимательная, отзывчивая, всегда подробно распрашивает о состоянии здоровья, объясняет что отчего и почему,в какой последовательности как и что будет при лечении,какие варианты есть. Правда, нет слов,как благодарна. Ирина Л</p>
-                        </div>
-                        <div class="review-block__item">
-                            <p class="name">Инна Федоровна Гончарова <span class="date">11 мая 2016</span></p>
-                            <p class="text">Бешляга Татьяна Валерьевна, спасибо Вам за профессионализм, чуткость, внимание, отзвычивость!</p>
-                        </div>
-                    </div>
-                    <a href="#" class="review-send">Оставить отзыв</a>
-                </div>
-                <div class="price-block">
-                    <h2>Стоимость приема</h2>
-                    <div class="price-block__item">
-                        <p class="name">Прием (осмотр, консультация) невролога, ведущего специалиста, первичный</p>
-                        <div class="left">
-                            <p class="price">от 2 300 ₽</p>
-                        </div>
-                        <div class="right">
-                            <a href="#">Записаться</a>
-                        </div>
-                    </div>
-                    <div class="price-block__item">
-                        <p class="name">Прием (осмотр, консультация) невролога, ведущего специалиста, повторный</p>
-                        <div class="left">
-                            <p class="price">от 2 300 ₽</p>
-                            <div class="price-block__item--clinic">
-                                <div>
-                                    <p>от 3 500 ₽</p>
-                                    <span>Северная клиника</span>
+            </div>
+            <div class="direction-category">
+                <div class="container">
+                    <div class="direction-category__category big">
+                        <div class="price-table">
+                            <div class="price-table__row head">
+                                <div class="price-table__cell">
+                                    Наименование
                                 </div>
-                                <div>
-                                    <p>от 3 000 ₽</p>
-                                    <span>Центральная клиника</span>
+                                <div class="price-table__cell">
+                                    Цена, ₽
                                 </div>
-                                <div>
-                                    <p>от 3 200 ₽</p>
-                                    <span>Отделение Парадный квартал</span>
+                                <div class="price-table__cell">
+                                    Аптека
                                 </div>
                             </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell"></div>
+                                <div class="price-table__cell"></div>
+                                <div class="price-table__cell"></div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
+                            <div class="price-table__row">
+                                <div class="price-table__cell">Агри д/детей №40 тб</div>
+                                <div class="price-table__cell">109.00</div>
+                                <div class="price-table__cell">Невская</div>
+                            </div>
                         </div>
-                        <div class="right">
-                            <a href="#">Записаться</a>
-                        </div>
+                        <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+                            <li class="current"><a href="#" aria-label="Page 1">1</a></li>
+                            <li><a href="#" aria-label="Page 2">2</a></li>
+                            <li><a href="#" aria-label="Page 3">3</a></li>
+                            <li><a href="#" aria-label="Page 4">4</a></li>
+                            <li class="ellipsis"></li>
+                            <li><a href="#" aria-label="Page 12">102</a></li>
+                            <li><a href="#" aria-label="Page 13">103</a></li>
+                            <li class="pagination-next"><a href="#" aria-label="Next page">Вперед</a></li>
+                        </ul>
+                        <p class="low-price">* Скидки до 5%, цены со скидкой уточняйте в аптеке </p>
+                    </div>
+                    <div class="direction-category__filter">
+                        <form>
+                            <div class="first-row">
+                                <p>Отделения</p>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Северная клиника
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Центральная клиника
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Московское отделение
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Отделение Парадный квартал
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Отделение Удельное
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Отделение Озерки
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Отделение Светлановский 43
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Фрунзенское отделение
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Василеостровское отделение
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Приморское отделение
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Курортное отделение
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Отделение МРТ
+                                </label>
+                            </div>
+                            <div class="second-row">
+                                <input type="submit" value='Применить'>
+                                <a href="#">Сбросить фильтр</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
