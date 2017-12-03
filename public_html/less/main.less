@@ -1946,6 +1946,15 @@ table {
 
 .review-block {
     margin-bottom: 3em;
+    &.noborder {
+        .review-block__list {
+            .review-block__item {
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+    }
     .review-block__list {
         .review-block__item {
             border-top: 1px solid @border;
@@ -1973,6 +1982,21 @@ table {
                 font-size: 18px;
                 line-height: 1.67;
                 margin: 0;
+                a {
+                    color: @green;
+                }
+            }
+            .clinic {
+                display: block;
+                text-transform: uppercase;
+                color: @black;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+                margin-top: 16px;
+                &:hover {
+                    color: @green;
+                }
             }
         }
     }
@@ -1987,6 +2011,52 @@ table {
         text-transform: uppercase;
         color: @wht;
         line-height: 1;
+    }
+}
+
+.review-filter-block {
+    .row;
+    select {
+        .inline;
+        .middle;
+        .appearance;
+        border: 1px solid @border;
+        background: url(../images/svg/chevron.svg) no-repeat @wht;
+        background-position: 98% center;
+        width: ~'calc(33.33% - 6.66px)';
+        margin-right: 10px;
+        font-size: 14px;
+        height: 50px;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+}
+
+.reviews-button-block {
+    background: @border;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    .row;
+    a {
+        .inline;
+        .middle;
+        text-transform: uppercase;
+        color: @wht;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        line-height: 1;
+        padding: 18px 30px;
+        & + a {
+            margin-left: 10px;
+        }
+        &.orange {
+            background: @orange;
+        }
+        &.green {
+            background: @green;
+        }
     }
 }
 
