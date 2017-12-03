@@ -172,4 +172,8 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.doctors-list__item').find('.doctors-hidden-text').slideToggle();
     $this.find('span').toggleText('Подробнее', 'Скрыть');
+}).on('click touchstart', '.partners-show-all', function () {
+    var $this = $(this);
+    $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
+    $this.find('span').toggleText('Подробнее', 'Скрыть');
 });

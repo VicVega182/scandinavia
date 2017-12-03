@@ -2448,6 +2448,68 @@ table {
     }
 }
 
+.partners-list {
+    .row;
+    padding-bottom: 40px;
+    .partners-list__item {
+        .inline;
+        .top;
+        width: ~'calc(25% - 18.75px)';
+        margin: 0 25px 30px 0;
+        border: 1px solid @border;
+        padding: 30px 18px 60px;
+        &:nth-child(4n) {
+            margin-right: 0;
+        }
+        @media @tab {
+            width: ~'calc(33.33% - 16.66px)';
+            &:nth-child(4n) {
+                margin-right: 25px;
+            }
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+        .partners-list__item--img {
+            text-align: center;
+            margin-bottom: 30px;
+            img {
+                height: 140px;
+                width: auto;
+            }
+        }
+        .name {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.44;
+            color: @black;
+            margin: 0 0 4px;
+        }
+        .text {
+            font-size: 14px;
+            line-height: 1.43;
+            margin: 0 0 6px;
+        }
+        .partners-hidden-text {
+            display: none;
+            font-size: 14px;
+            line-height: 1.43;
+            margin: 0 0 6px;
+        }
+        a.partners-show-all {
+            color: @green;
+            font-size: 14px;
+            line-height: 1.43;
+            i {
+                .inline;
+                .middle;
+                font-size: 6px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
 .page-tabs {
     .tabs {
         background-color: @wht;
