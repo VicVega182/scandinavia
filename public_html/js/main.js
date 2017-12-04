@@ -96,6 +96,11 @@ $(document).ready(function () {
             source: data,
             appendTo: "#appendSearch"
         });
+        $("#searchHid").catcomplete({
+            delay: 0,
+            source: data,
+            appendTo: "#hiddenSearch"
+        });
     });
 
     /* Foundation */
@@ -176,4 +181,17 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
     $this.find('span').toggleText('Подробнее', 'Скрыть');
+}).on('click touchstart', '.dropdown-pane ul li a', function () {
+    var $this = $(this);
+    $this.closest('.form-cell').find('button').text($this.text());
+    $this.closest('.form-cell').find('input').val($this.attr('data-value'));
+}).on('click', '.js-show__search', function(e) {
+    var $this = $(this);
+    $('.hidden-search').slideToggle();
+    e.preventDefault();
+})
+.on('click touchstart', '.hidden-form-close', function(e) {
+    var $this = $(this);
+    $('.hidden-search').slideToggle();
+    e.preventDefault();
 });

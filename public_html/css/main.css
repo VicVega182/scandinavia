@@ -872,6 +872,115 @@ a {
   margin: 0;
   color: #fff;
 }
+.hidden-search {
+  padding: 40px 0;
+  border-bottom: 1px solid #dddddd;
+  display: none;
+}
+.hidden-search.small-padding {
+  padding: 0;
+  margin: 0 0 2.5em;
+}
+.hidden-search form {
+  border: none;
+  position: relative;
+}
+.hidden-search form i,
+.hidden-search form button {
+  position: absolute;
+}
+.hidden-search form input {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none!important;
+  box-shadow: none!important;
+  padding: 0 180px 0 90px;
+  height: 100px;
+  font-size: 24px;
+  font-weight: 300;
+  color: #313131;
+}
+.hidden-search form i {
+  font-size: 24px;
+  color: #10a554;
+  left: 0;
+  top: 32px;
+  font-weight: 300;
+  font-style: normal;
+}
+.hidden-search form button {
+  text-transform: uppercase;
+  color: #fff;
+  background: #10a554;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 18px 55px;
+  right: 20px;
+  top: 26px;
+}
+.hidden-search form a {
+  position: absolute;
+  top: -20px;
+  color: #313131;
+  font-size: 20px;
+  right: 20px;
+}
+.hidden-search form a i {
+  color: #313131;
+  font-size: 20px;
+}
+.hidden-search form ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 180px 40px 80px;
+}
+.hidden-search form ul .ui-autocomplete-category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #a7a7a7;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.hidden-search form ul li:not(.ui-autocomplete-category) div,
+.hidden-search form ul li:not(.ui-autocomplete-category) a {
+  font-size: 18px;
+  line-height: 1.56;
+  cursor: pointer;
+  position: relative;
+}
+.hidden-search form ul li:not(.ui-autocomplete-category) div:hover,
+.hidden-search form ul li:not(.ui-autocomplete-category) a:hover {
+  color: #10a554;
+}
+.hidden-search form ul li:not(.ui-autocomplete-category) div:hover:before,
+.hidden-search form ul li:not(.ui-autocomplete-category) a:hover:before {
+  content: "\e901";
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 50%;
+  margin-top: -5.5px;
+  left: -40px;
+  transform: rotate(180deg);
+  display: block;
+  font-size: 11px;
+  color: #10a554;
+}
+.hidden-search form ul li:not(.ui-autocomplete-category) + .ui-autocomplete-category {
+  margin-top: 20px;
+}
 .search-block {
   padding: 80px 0;
 }
@@ -1112,6 +1221,9 @@ a {
 .address-list {
   letter-spacing: -0.4em;
 }
+.address-list.with-margin {
+  margin-bottom: 30px;
+}
 .address-list .address-list__block {
   display: inline-block;
   letter-spacing: normal;
@@ -1195,6 +1307,9 @@ a {
 .map-block {
   width: 100%;
   height: 600px;
+}
+.map-block.address {
+  margin-bottom: 45px;
 }
 .news-block {
   letter-spacing: -0.4em;
@@ -1451,6 +1566,9 @@ a {
   max-width: 600px;
   margin-bottom: 30px;
 }
+.text-page form .form-error {
+  margin: 0;
+}
 .text-page form .form-row {
   letter-spacing: -0.4em;
   margin-bottom: 10px;
@@ -1459,19 +1577,60 @@ a {
   display: inline-block;
   letter-spacing: normal;
   vertical-align: top;
+  position: relative;
 }
 .text-page form .form-row .form-cell:first-child {
   width: 180px;
 }
 .text-page form .form-row .form-cell:last-child {
-  width: calc(100% - 180px);
-  padding-left: 10px;
+  width: calc(100% - 190px);
+  margin-left: 10px;
 }
 .text-page form .form-row .form-cell p {
   margin: 0;
 }
 .text-page form .form-row .form-cell p.is-focus {
   color: #10a554;
+}
+.text-page form .form-row .form-cell .dropdown-pane {
+  width: 100%;
+  padding: 10px 0;
+}
+.text-page form .form-row .form-cell .dropdown-pane ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.text-page form .form-row .form-cell .dropdown-pane ul li {
+  margin: 0;
+}
+.text-page form .form-row .form-cell .dropdown-pane ul li a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  line-height: 1;
+}
+.text-page form .form-row .form-cell .dropdown-pane ul li a:hover {
+  background: #10a554;
+  color: #fff;
+}
+.text-page form .form-row .form-cell button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+  height: 50px;
+  border: 1px solid #dddddd;
+  margin-bottom: 0px;
+  background: url(../images/svg/chevron.svg) no-repeat #fff;
+  background-position: 97% center;
+  width: 100%;
+  color: #313131;
+  text-align: left;
+  font-size: 18px;
+}
+.text-page form .form-row .form-cell button:focus {
+  border-color: #10a554;
 }
 .text-page form .form-row .form-cell textarea {
   appearance: none;
@@ -1483,6 +1642,9 @@ a {
 }
 .text-page form .form-row .form-cell textarea:focus {
   border-color: #10a554;
+}
+.text-page form .form-row .form-cell input {
+  outline: none;
 }
 .text-page form .form-row .form-cell input:not([type="checkbox"]) {
   appearance: none;
