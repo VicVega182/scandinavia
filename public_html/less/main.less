@@ -1380,6 +1380,11 @@ a {
                 text-decoration: none;
             }
         }
+        b {
+            a {
+                text-decoration: none;
+            }
+        }
     }
     .quote {
         margin-bottom: 3em;
@@ -1500,6 +1505,135 @@ a {
         border-left: 3px solid @green;
         padding: 0 0 0 37px;
         margin: 2em 0;
+    }
+    form {
+        max-width: 600px;
+        margin-bottom: 30px;
+        .form-row {
+            .row;
+            margin-bottom: 10px;
+            .form-cell {
+                .inline;
+                .top;
+                &:first-child {
+                    width: 180px;
+                }
+                &:last-child {
+                    width: ~'calc(100% - 180px)';
+                    padding-left: 10px;
+                }
+                p {
+                    margin: 0;
+                    &.is-focus {
+                        color: @green;
+                    }
+                }
+                textarea {
+                    .appearance;
+                    box-shadow: none;
+                    border: 1px solid @border;
+                    min-height: 120px;
+                    &:focus {
+                        border-color: @green;
+                    }
+                }
+                input {
+                    &:not([type="checkbox"]) {
+                        .appearance;
+                        box-shadow: none;
+                        height: 50px;
+                        border: 1px solid @border;
+                        margin-bottom: 0px;
+                        &:focus {
+                            border-color: @green;
+                        }
+                    }
+                    &[data-toggle="datepicker"] {
+                        background: url(../images/svg/calendar.svg) no-repeat transparent;
+                        background-position: 96% center;
+                    }
+                    &[type='submit'] {
+                        background: @green;
+                        width: auto;
+                        display: inline-block;
+                        color: @wht;
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        padding: 0 50px;
+                        border: none;
+                        margin-top: 10px;
+                    }
+                }
+                .btn-group {
+                    .row;
+                    width: 100%;
+                    label {
+                        .inline;
+                        .top;
+                        width: 25%;
+                        background: transparent;
+                        border: 1px solid @border;
+                        color: @gray;
+                        border-radius: 0;
+                        height: 50px;
+                        padding: 3px 0;
+                        & + label {
+                            border-left-color: transparent;
+                        }
+                        &.active {
+                            box-shadow: none;
+                            border-color: @green;
+                            span {
+                                &:first-of-type {
+                                    color: @green;
+                                }
+                            }
+                        }
+                        &.focus {
+                            outline: none;
+                        }
+                        &:first-child {
+                            font-size: 18px;
+                            line-height: 1.44;
+                            line-height: 40px;
+                            &.active {
+                                color: @green;
+                            }
+                        }
+                        span {
+                            display: block;
+                            &:first-of-type {
+                                font-size: 18px;
+                                line-height: 1.44;
+                            }
+                            &:last-of-type {
+                                font-size: 10px;
+                                font-weight: 700;
+                                line-height: 1.4;
+                                letter-spacing: 0.3px;
+                            }
+                        }
+                    }
+                }
+                .checkbox {
+                    &:before {
+                        top: 4px;
+                    }
+                    font-size: 12px;
+                    line-height: 1.5;
+                    a {
+                        display: block;
+                        text-decoration: underline;
+                        color: @black;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

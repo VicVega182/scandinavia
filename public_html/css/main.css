@@ -1324,6 +1324,9 @@ a {
 .text-page p a:hover {
   text-decoration: none;
 }
+.text-page p b a {
+  text-decoration: none;
+}
 .text-page .quote {
   margin-bottom: 3em;
 }
@@ -1443,6 +1446,137 @@ a {
   border-left: 3px solid #10a554;
   padding: 0 0 0 37px;
   margin: 2em 0;
+}
+.text-page form {
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+.text-page form .form-row {
+  letter-spacing: -0.4em;
+  margin-bottom: 10px;
+}
+.text-page form .form-row .form-cell {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: top;
+}
+.text-page form .form-row .form-cell:first-child {
+  width: 180px;
+}
+.text-page form .form-row .form-cell:last-child {
+  width: calc(100% - 180px);
+  padding-left: 10px;
+}
+.text-page form .form-row .form-cell p {
+  margin: 0;
+}
+.text-page form .form-row .form-cell p.is-focus {
+  color: #10a554;
+}
+.text-page form .form-row .form-cell textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+  border: 1px solid #dddddd;
+  min-height: 120px;
+}
+.text-page form .form-row .form-cell textarea:focus {
+  border-color: #10a554;
+}
+.text-page form .form-row .form-cell input:not([type="checkbox"]) {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none;
+  height: 50px;
+  border: 1px solid #dddddd;
+  margin-bottom: 0px;
+}
+.text-page form .form-row .form-cell input:not([type="checkbox"]):focus {
+  border-color: #10a554;
+}
+.text-page form .form-row .form-cell input[data-toggle="datepicker"] {
+  background: url(../images/svg/calendar.svg) no-repeat transparent;
+  background-position: 96% center;
+}
+.text-page form .form-row .form-cell input[type='submit'] {
+  background: #10a554;
+  width: auto;
+  display: inline-block;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0 50px;
+  border: none;
+  margin-top: 10px;
+}
+.text-page form .form-row .form-cell .btn-group {
+  letter-spacing: -0.4em;
+  width: 100%;
+}
+.text-page form .form-row .form-cell .btn-group label {
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: top;
+  width: 25%;
+  background: transparent;
+  border: 1px solid #dddddd;
+  color: #a7a7a7;
+  border-radius: 0;
+  height: 50px;
+  padding: 3px 0;
+}
+.text-page form .form-row .form-cell .btn-group label + label {
+  border-left-color: transparent;
+}
+.text-page form .form-row .form-cell .btn-group label.active {
+  box-shadow: none;
+  border-color: #10a554;
+}
+.text-page form .form-row .form-cell .btn-group label.active span:first-of-type {
+  color: #10a554;
+}
+.text-page form .form-row .form-cell .btn-group label.focus {
+  outline: none;
+}
+.text-page form .form-row .form-cell .btn-group label:first-child {
+  font-size: 18px;
+  line-height: 1.44;
+  line-height: 40px;
+}
+.text-page form .form-row .form-cell .btn-group label:first-child.active {
+  color: #10a554;
+}
+.text-page form .form-row .form-cell .btn-group label span {
+  display: block;
+}
+.text-page form .form-row .form-cell .btn-group label span:first-of-type {
+  font-size: 18px;
+  line-height: 1.44;
+}
+.text-page form .form-row .form-cell .btn-group label span:last-of-type {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+.text-page form .form-row .form-cell .checkbox {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.text-page form .form-row .form-cell .checkbox:before {
+  top: 4px;
+}
+.text-page form .form-row .form-cell .checkbox a {
+  display: block;
+  text-decoration: underline;
+  color: #313131;
+}
+.text-page form .form-row .form-cell .checkbox a:hover {
+  text-decoration: none;
 }
 .accordion {
   margin: 0 0 2.5em;

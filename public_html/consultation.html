@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Запись на прием</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <!-- SCRIPT -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!-- Jquery UI -->
+        <script src="js/what-input.js"></script><!-- Plugin for foundation -->
+        <script src="js/foundation.min.js"></script><!-- Foundation -->
+        <script src="js/slick.min.js"></script><!-- Gallery image slider -->
+        <script src="js/device.min.js"></script><!-- Device detect -->
+        <script src="js/jquery.cookie.js"></script><!-- Jquery cookie -->
+        <script src="js/jquery.matchHeight.js"></script><!-- Jquery matchHeight -->
+        <script src="js/btnInput.js"></script><!-- Radio input style -->
+        <script src="js/ofi.min.js"></script><!-- Object fit for IE -->
+        <script src="js/jquery.menu-aim.js"></script><!-- Menu like Amazon -->
+        <script src="js/datepicker.js"></script><!-- Datepicker -->
+        <script src="js/datepicker.ru-RU.js"></script><!-- Datepicker russian -->
+        <script src="js/main.js"></script>
+        <!-- SCRIPT END -->
+
+        <!-- STYLE -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/btnInput.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/datepicker.css"/>
+        <link rel="stylesheet" href="css/main.css">
+        <!-- STYLE END -->
+
+    </head>
+    <body>
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="is-active">Скандинавия</a></li>
+                            <li><a href="#">Ава-Петер</a></li>
+                            <li><a href="#" class="is-active lang">Ру</a></li>
+                            <li><a href="#" class="lang">En</a></li>
+                        </ul>
+                    </nav>
+                    <div class="cabinet-link">
+                        <a href="#"><i class="icon-lc"></i>Личный кабинет</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-logo">
+                        <a href="/"><img src="images/logo.svg"></a>
+                    </div>
+                    <div class="header-phones">
+                        <div class="header-phones__item hide-tab">
+                            <a href="tel:+78126007777">+ 7 (812) 600-77-77</a>
+                            <p><b>Контактный центр</b></p>
+                            <p>ПН—СБ: 8—22 ВС: 9—19</p>
+                        </div>
+                        <div class="header-phones__item red hide-tab">
+                            <a href="tel:+78126007770">+ 7 (812) 600-77-77</a>
+                            <p><b>Скорая помощь</b></p>
+                            <p>Ежедневно: 24 часа</p>
+                        </div>
+                        <div class="header-phones__item text-center">
+                            <a data-open="revealPhones" class="green-item">
+                                <i class="icon-phone"></i>
+                                <p>Все телефоны</p>
+                            </a>
+                        </div>
+                        <div class="header-callback">
+                            <a data-open="revealCheck">Записаться на прием</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="fixed-show fixed-header__logo">
+                        <a href="/"><img src="images/logo.svg"></a>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li>
+                                <a href="#" data-toggle="specialization">Направления</a>
+                                <div class="dropdown-pane" id="specialization" data-dropdown data-hover="true" data-hover-pane="true" data-alignment="center">
+                                    <ul>
+                                        <li class="title">Популярные направления</li>
+                                        <li><a href="#">Акушерство и гинекология</a></li>
+                                        <li><a href="#">Гастроэнтерология</a></li>
+                                        <li><a href="#">Дерматология</a></li>
+                                        <li><a href="#">Диагностика</a></li>
+                                        <li><a href="#">Кардиология</a></li>
+                                        <li><a href="#">Мамология</a></li>
+                                        <li><a href="#">Неврология</a></li>
+                                        <li><a href="#">Офтальмология</a></li>
+                                        <li><a href="#">Педиатрия</a></li>
+                                        <li><a href="#">Проктология</a></li>
+                                        <li><a href="#">Родильное отделение</a></li>
+                                        <li><a href="#">Терапия</a></li>
+                                        <li><a href="#">Урология</a></li>
+                                        <li><a href="#">Хирургия</a></li>
+                                        <li><a href="#"><b>Все направления</b></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="#">Цены</a></li>
+                            <li><a href="#">Врачи</a></li>
+                            <li><a href="#">Адреса клиник</a></li>
+                            <li>
+                                <a href="#" data-toggle="farmacy">Аптеки</a>
+                                <div class="dropdown-pane" id="farmacy" data-dropdown data-hover="true" data-hover-pane="true" data-alignment="center">
+                                    <ul>
+                                        <li><a href="#">Адреса аптек</a></li>
+                                        <li><a href="#">Ассортимент и цены</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header-buttons">
+                        <a data-open="revealPhones" class="fixed-show fixed-header__phones"><i class="icon-phone"></i></a>
+                        <a data-toggle="burger-menu"><span>Все разделы</span><i class="icon-burger"></i></a>
+                        <a href="#"><i class="icon-search-header"></i></a>
+                    </div>
+                    <div class="burger-menu dropdown-pane" id="burger-menu" data-dropdown data-auto-focus="true">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Акции</a></li>
+                                <li><a href="#">Специализированные центры</a></li>
+                                <li><a href="#">Отзывы</a></li>
+                                <li><a href="#">Блог о здоровье</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Для клиентов</li>
+                                <li><a href="#">Дисконтная система клиники</a></li>
+                                <li><a href="#">Лечение по ОМС и ДМС</a></li>
+                                <li><a href="#">Оформление справок в налоговые органы</a></li>
+                                <li><a href="#">Для корпоративных клиентов</a></li>
+                                <li><a href="#">Для страховых компаний</a></li>
+                                <li><a href="#">Для регионов</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Компания</li>
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Миссия</a></li>
+                                <li><a href="#">История</a></li>
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Руководство</a></li>
+                                <li><a href="#">Партнёры</a></li>
+                                <li><a href="#">Оборудование</a></li>
+                                <li><a href="#">Стандарт качества</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Работа в «Скандинавии»</li>
+                                <li><a href="#">Вакансии</a></li>
+                                <li><a href="#">Карьера</a></li>
+                                <li><a href="#">Охрана труда</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="wrapper">
+            <div class="container">
+                <div class="text-page left">
+                    <nav role="navigation">
+                        <ul class="breadcrumbs">
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Запись на прием</a></li>
+                        </ul>
+                    </nav>
+                    <h1>Запись на прием</h1>
+                    <p>Вы можете записаться на прием позвонив по телефону <b><a href="tel:+7 (812) 600-77-77">+7 (812) 600-77-77</a></b> или заполнить форму ниже.</p>
+                    <form action="post">
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>ФИО</p>
+                            </div>
+                            <div class="form-cell">
+                                <label>
+                                    <input type="text" required>
+                                    <span class="form-error">
+                                        Вы не ввели ФИО
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>Телефон</p>
+                            </div>
+                            <div class="form-cell">
+                                <label>
+                                    <input type="text" required pattern="number">
+                                    <span class="form-error">
+                                        Вы не ввели номер телефона
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>E-mail</p>
+                            </div>
+                            <div class="form-cell">
+                                <label>
+                                    <input type="text" required pattern="number">
+                                    <span class="form-error">
+                                        Вы не ввели e-mail
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>Желаемая дата</p>
+                            </div>
+                            <div class="form-cell">
+                                <label><input type="text" data-toggle="datepicker"></label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>Время суток</p>
+                            </div>
+                            <div class="form-cell">
+                                <div class="btn-group full" data-toggle="buttons">
+                                    <label class="btn btn-primary active">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" checked>Любое
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option2" autocomplete="off"><span>Утро</span><span>8:00–12:00</span>
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option3" autocomplete="off"><span>День</span><span>12:00–17:00</span>
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <input type="radio" name="options" id="option4" autocomplete="off"><span>Вечер</span><span>17:00–21:00</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>ФИО специалиста или специализация</p>
+                            </div>
+                            <div class="form-cell">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell">
+                                <p>Комментарий</p>
+                            </div>
+                            <div class="form-cell">
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell"></div>
+                            <div class="form-cell">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Подтверждаю свое согласие на обработку персональных данных (ФИО, телефон, email) в соответствии с Федеральным законом от 27.07.2006 г. № 152-ФЗ «О персональных данных».
+                                    <a href="#">Политика конфиденциальности</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell"></div>
+                            <div class="form-cell">
+                                <input type="submit" value="Отправить">
+                            </div>
+                        </div>
+                    </form>
+                    <p>С Вами свяжется диспетчер для уточнения деталей записи на прием. Пожалуйста, будьте готовы ответить на звонок.</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-social">
+                <div class="container">
+                    <a href="#"><i class="icon-insta"></i></a>
+                    <a href="#"><i class="icon-vk"></i></a>
+                    <a href="#"><i class="icon-facebook"></i></a>
+                    <a href="#"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="container">
+                    <div class="footer-nav__block">
+                        <p>Контактный центр</p>
+                        <a href="tel:+7 (812) 600-77-77" class="big">+7 (812) 600-77-77</a>
+                        <a href="#">Версия для слабовидящих</a>
+                        <a href="#">Карта сайта</a>
+                    </div>
+                    <div class="footer-nav__block">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Акции</a></li>
+                                <li><a href="#">Специализированные центры</a></li>
+                                <li><a href="#">Отзывы</a></li>
+                                <li><a href="#">Блог о здоровье</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Работа в «Скандинавии»</li>
+                                <li><a href="#">Вакансии</a></li>
+                                <li><a href="#">Карьера</a></li>
+                                <li><a href="#">Охрана труда</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-nav__block">
+                        <nav>
+                            <ul>
+                                <li class="title">Для клиентов</li>
+                                <li><a href="#">Дисконтная система клиники</a></li>
+                                <li><a href="#">Лечение по ОМС и ДМС</a></li>
+                                <li><a href="#">Оформление справок в налоговые органы</a></li>
+                                <li><a href="#">Для корпоративных клиентов</a></li>
+                                <li><a href="#">Для страховых компаний</a></li>
+                                <li><a href="#">Для регионов</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-nav__block">
+                        <nav>
+                            <ul>
+                                <li class="title">Компания</li>
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Миссия</a></li>
+                                <li><a href="#">История</a></li>
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Руководство</a></li>
+                                <li><a href="#">Партнёры</a></li>
+                                <li><a href="#">Оборудование</a></li>
+                                <li><a href="#">Стандарт качества</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-dev">
+                <div class="container">
+                    <a href="http://glavnaya.com">Разработка сайта — «Главная страница»</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <a href="#">Лицензия</a>
+                    <a href="#">Политика конфиденциальности</a>
+                    <p>Клиника «Скандинавия» © Все права защищены 2004 — 2017. Информация и цены, представленные на сайте, являются справочными и не являются публичной офертой.</p>
+                </div>
+            </div>
+        </footer>
+        <div class="reveal reveal-small" id="revealPhones" data-reveal>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <i class="icon-close"></i>
+            </button>
+            <h3>Телефоны</h3>
+            <div class="reveal-phones__list">
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-77">+ 7 (812) 600-77-77</a>
+                    <p><b>Колл-центр</b></p>
+                    <p>ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-70">+ 7 (812) 600-77-70</a>
+                    <p><b>Скорая помощь</b></p>
+                    <p>Ежедневно: 24 часа</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-72">+ 7 (812) 600-77-72</a>
+                    <p><b>Травмпункт</b></p>
+                    <p>ПН—СБ: 8—22 ВС: 10—19</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-78-78">+ 7 (812) 600-78-78</a>
+                    <p><b>МРТ и КТ</b></p>
+                    <p>Ежедневно: 8—22</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-71">+ 7 (812) 600-77-71</a>
+                    <p><b>Вызов врача</b></p>
+                    <p>ПН—СБ: 8—21 ВС: 10—18</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-71">+ 7 (812) 600-77-71</a>
+                    <p><b>Родильное отделение</b></p>
+                    <p>Ежедневно: 24 часа</p>
+                </div>
+            </div>
+            <a class="reveal-callback" data-open="revealCallback">Заказать обратый звонок</a>
+        </div>
+        <div class="reveal reveal-small" id="revealCallback" data-reveal>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <i class="icon-close"></i>
+            </button>
+            <div class="text-center">
+                <h3>Обратный звонок</h3>
+                <p>С Вами свяжется диспетчер для уточнения деталей записи на прием. Пожалуйста, будьте готовы ответить на звонок.</p>
+            </div>
+            <form action="post" data-abide novalidate>
+                <div>
+                    <label>
+                        <b>Имя</b>
+                        <input type="text" required >
+                        <span class="form-error">
+                            Введите имя 
+                        </span>
+                    </label>
+                    <label>
+                        <b>Телефон</b>
+                        <input type="text" required pattern="number">
+                        <span class="form-error">
+                            Введите телефон 
+                        </span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Подтверждаю свое согласие на обработку персональных данных (ФИО, телефон, email) в соответствии с Федеральным законом от 27.07.2006 г. № 152-ФЗ «О персональных данных».
+                        <a href="#">Политика конфиденциальности</a>
+                    </label>
+                    <input type="submit" value="Заказать звонок">
+                </div>
+            </form>
+        </div>
+        <div class="reveal reveal-big" id="revealCheck" data-reveal>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <i class="icon-close"></i>
+            </button>
+            <h2>Запись на прием</h2>
+            <p class="big">Вы можете записаться на прием позвонив по телефону <a href="tel:+7 (812) 600-77-77">+7 (812) 600-77-77</a> или заполнить форму ниже.</p>
+            <form action="post" data-abide novalidate class="check-form">
+                <div class="half">
+                    <label>
+                        <b>ФИО</b>
+                        <input type="text" required >
+                        <span class="form-error">
+                            Введите ФИО 
+                        </span>
+                    </label>
+                </div>
+                <div class="half">
+                    <label>
+                        <b>Телефон</b>
+                        <input type="text" required pattern="number">
+                        <span class="form-error">
+                            Введите телефон 
+                        </span>
+                    </label>
+                </div>
+                <div class="half">
+                    <label>
+                        <b>E-mail</b>
+                        <input type="email" required>
+                        <span class="form-error">
+                            Введите e-mail 
+                        </span>
+                    </label>
+                </div>
+                <div class="half">
+                    <label>
+                        <b>ФИО специалиста или специализация</b>
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="half">
+                    <label>
+                        <b>Желаемая дата</b>
+                        <input type="text" data-toggle="datepicker">
+                    </label>
+                </div>
+                <div class="half">
+                    <label>
+                        <b>Время суток</b>
+                    </label>
+                    <div class="btn-group full" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>Любое
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"><span>Утро</span><span>8:00–12:00</span>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"><span>День</span><span>12:00–17:00</span>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option4" autocomplete="off"><span>Вечер</span><span>17:00–21:00</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="full">
+                    <label>
+                        <b>Комментарий</b>
+                        <textarea></textarea>
+                    </label>
+                </div>
+                <div class="full">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Подтверждаю свое согласие на обработку персональных данных (ФИО, телефон, email) в соответствии с Федеральным законом от 27.07.2006 г. № 152-ФЗ «О персональных данных».
+                        <a href="#">Политика конфиденциальности</a>
+                    </label>
+                </div>
+                <input type="submit" value="Отправить">
+                <div class="full">
+                    <p class="quote">С Вами свяжется диспетчер для уточнения деталей записи на прием. Пожалуйста, будьте готовы ответить на звонок.</p>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
