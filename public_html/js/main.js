@@ -209,6 +209,14 @@ $(document).ready(function () {
     var $this = $(this);
     $('body').toggleClass('stop');
     $('.mobile-nav').toggleClass('is-open');
+    $this.toggleClass('relative');
     $this.find('i').toggleClass('icon-burger icon-close');
     e.preventDefault();
+}).on('touchstart', '.toggle-filter', function () {
+    var $this = $(this);
+    $('.direction-category__filter').toggle();
+})
+.on('touchstart', '.close-filter', function () {
+    var $this = $(this);
+    $('.direction-category__filter').toggle();
 });

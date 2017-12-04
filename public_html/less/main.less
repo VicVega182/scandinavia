@@ -116,11 +116,11 @@
 
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon.eot?h3feg1');
-    src:  url('../fonts/icomoon.eot?h3feg1#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?h3feg1') format('truetype'),
-        url('../fonts/icomoon.woff?h3feg1') format('woff'),
-        url('../fonts/icomoon.svg?h3feg1#icomoon') format('svg');
+    src:  url('../fonts/icomoon.eot?hk1j4v');
+    src:  url('../fonts/icomoon.eot?hk1j4v#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?hk1j4v') format('truetype'),
+        url('../fonts/icomoon.woff?hk1j4v') format('woff'),
+        url('../fonts/icomoon.svg?hk1j4v#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -181,6 +181,9 @@
 .icon-pin:before {
     content: "\e910";
     color: #f4a13c;
+}
+.icon-filter:before {
+    content: "\e91a";
 }
 .icon-apteka:before {
     content: "\e911";
@@ -245,6 +248,10 @@ h1 {
     font-weight: 700;
     line-height: 1.25;
     margin: 0 0 0.7em;
+    @media @mb {
+        margin: 1em 0 0.5em;
+        font-size: 24px;
+    }
 }
 h2 {
     font-size: 30px;
@@ -435,8 +442,10 @@ a {
                     margin-left: 20px;
                 }
                 &.mobile-menu__show {
-                    position: relative;
-                    z-index: 101;
+                    &.relative {
+                        position: relative;
+                        z-index: 101;
+                    }
                 }
             }
         }
@@ -1292,7 +1301,10 @@ a {
     }
     &.small-padding {
         padding: 0;
-        margin: 0 0 2.5em;
+        margin: 0 0 1em;
+        @media @mb {
+            border-top: 1px solid @border;
+        }
     }
     form {
         border: 1px solid @green;
@@ -1396,6 +1408,24 @@ a {
                 }
                 & + .ui-autocomplete-category {
                     margin-top: 20px;
+                }
+            }
+        }
+        .toggle-filter {
+            display: none;
+            @media @mb {
+                display: block;
+                right: 0;
+                position: absolute;
+                top: 1px;
+                padding: 0 4px 0 20px;
+                height: 58px;
+                line-height: 58px;
+                border-left: 1px solid @border;
+                text-align: center;
+                i {
+                    color: @black;
+                    position: static;
                 }
             }
         }
@@ -2432,6 +2462,9 @@ table {
 
 .breadcrumbs {
     margin: 40px 0 10px;
+    @media @mb {
+        display: none;
+    }
     li {
         font-size: 10px;
         letter-spacing: 0.3px;
@@ -2904,6 +2937,9 @@ table {
 .direction-category {
     .row;
     margin-bottom: 4em;
+    @media @mb {
+        margin-bottom: 2em;
+    }
     .direction-category__category, .direction-category__filter {
         .inline;
         .top;
@@ -2911,6 +2947,10 @@ table {
     .direction-category__category {
         width: ~'calc(100% - 280px)';
         padding-right: 10%;
+        @media @mb {
+            width: 100%;
+            padding-right: 0;
+        }
         &.big {
             padding-right: 20px;
         }
@@ -2950,10 +2990,16 @@ table {
             border: none;
             border-bottom: 1px solid @border;
             margin-bottom: 1em;
+            @media @mb {
+                border-bottom: 0;
+            }
             .tabs-title {
                 border: none;
                 & + li {
                     margin-left: 20px;
+                    @media @mb {
+                        margin-left: 10px;
+                    }
                 }
                 a {
                     border-bottom: 2px solid transparent;
@@ -2962,6 +3008,9 @@ table {
                     padding: 0;
                     padding: 6px 0;
                     margin-bottom: -1px;
+                    @media @mb {
+                        font-size: 12px;
+                    }
                     &:hover {
                         border-bottom-color: transparent;
                     }
@@ -3069,6 +3118,9 @@ table {
         }
         .direction-category__list {
             margin-top: 2em;
+            @media @mb {
+                margin-top: 1.5em;
+            }
             ul {
                 list-style: none;
                 margin: 0;
@@ -3079,6 +3131,9 @@ table {
                         font-size: 18px;
                         line-height: 1.56;
                         color: @black;
+                        @media @mb {
+                            font-size: 14px;
+                        }
                         &.disabled {
                             color: @gray;
                         }
@@ -3092,10 +3147,16 @@ table {
                             font-size: 24px;
                             font-weight: 700;
                             line-height: 1.5;
+                            @media @mb {
+                                font-size: 16px;
+                            }
                         }
                     }
                     & + .title {
                         margin-top: 30px;
+                        @media @mb {
+                            margin-top: 20px;
+                        }
                     }
                 }
             }
@@ -3104,6 +3165,37 @@ table {
     .direction-category__filter {
         width: 280px;
         border: 1px solid @border;
+        @media @mb {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background: @wht;
+        }
+        .mobile-title {
+            display: none;
+            @media @mb {
+                display: block;
+                position: relative;
+                padding: 20px 16px;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 1.3;
+                border-bottom: 1px solid @border;
+            }
+        }
+        .close-filter {
+            position: absolute;
+            font-size: 20px;
+            top: 50%;
+            margin-top: -10px;
+            right: 16px;
+            i {
+                color: @black;
+            }
+        }
         .first-row {
             padding: 25px 15px;
             & + .first-row {
