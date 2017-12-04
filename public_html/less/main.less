@@ -3037,6 +3037,10 @@ table {
             .row;
             margin-bottom: 2em;
             border-bottom: 1px solid @border;
+            @media @mb {
+                border-bottom: none;
+                margin-bottom: 1em;
+            }
             a {
                 .inline;
                 .top;
@@ -3109,6 +3113,9 @@ table {
                         font-size: 18px;
                         line-height: 1.56;
                         color: @black;
+                        @media @mb {
+                            font-size: 14px;
+                        }
                     }
                     & + .first-letter {
                         margin-top: 30px;
@@ -3372,6 +3379,11 @@ table {
             &:nth-child(even) {
                 margin-right: 0;
             }
+        }
+        @media @mb {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 10px;
         }
         .doctors-list__item--img {
             height: 390px;

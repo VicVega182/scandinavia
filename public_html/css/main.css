@@ -3072,6 +3072,12 @@ table tbody tr:nth-child(even) {
   margin-bottom: 2em;
   border-bottom: 1px solid #dddddd;
 }
+@media (max-width: 767px) {
+  .direction-category .direction-category__category .doctors-alphabet {
+    border-bottom: none;
+    margin-bottom: 1em;
+  }
+}
 .direction-category .direction-category__category .doctors-alphabet a {
   display: inline-block;
   letter-spacing: normal;
@@ -3154,6 +3160,11 @@ table tbody tr:nth-child(even) {
   font-size: 18px;
   line-height: 1.56;
   color: #313131;
+}
+@media (max-width: 767px) {
+  .direction-category .direction-category__category .direction-category__list--abc ul li a {
+    font-size: 14px;
+  }
 }
 .direction-category .direction-category__category .direction-category__list--abc ul li + .first-letter {
   margin-top: 30px;
@@ -3426,6 +3437,13 @@ table tbody tr:nth-child(even) {
   }
   .doctors-list .doctors-list__item:nth-child(even) {
     margin-right: 0;
+  }
+}
+@media (max-width: 767px) {
+  .doctors-list .doctors-list__item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 .doctors-list .doctors-list__item .doctors-list__item--img {

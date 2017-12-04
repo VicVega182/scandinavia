@@ -139,6 +139,26 @@ $(document).ready(function () {
             nextArrow: '.blog-slider__next'
         });
     }
+    
+    /* Алфавит слайдер на мобильном */
+    if ($('.direction-category__alphabet').ex() && device.mobile()) {
+        $('.direction-category__alphabet').slick({
+            variableWidth: true,
+            arrows: false,
+            infinite: false,
+            slidesToScroll: 6
+        });
+    }
+    
+    /* Алфавит слайдер на мобильном */
+    if ($('.doctors-alphabet').ex() && device.mobile()) {
+        $('.doctors-alphabet').slick({
+            variableWidth: true,
+            arrows: false,
+            infinite: false,
+            slidesToScroll: 6
+        });
+    }
 
 
     /* Инициализация datepicker */
