@@ -233,6 +233,9 @@ body {
     font-family: 'Roboto', sans-serif;
     color: @black;
     background: @wht;
+    &.stop {
+        overflow: hidden;
+    }
 }
 h1, h2, h3, h4, h5, button, input, .button, .btn {
     font-family: 'Roboto', sans-serif;
@@ -259,6 +262,9 @@ h3 {
     max-width: 1240px;
     padding: 0 20px;
     margin: 0 auto;
+    @media @mb {
+        padding: 0 16px;
+    }
 }
 a {
     outline: none;
@@ -268,10 +274,179 @@ a {
 
 /* Header */
 
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    transition: -webkit-transform .45s cubic-bezier(.19,1,.22,1);
+    transition: transform .45s cubic-bezier(.19,1,.22,1);
+    transition: transform .45s cubic-bezier(.19,1,.22,1),-webkit-transform .45s cubic-bezier(.19,1,.22,1);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 99px;
+    &.is-open {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    .mobile-menu {
+        height: 100%;
+        width: 100%;
+        background: @wht;
+        .mobile-menu__container {
+            margin: 0 auto;
+            position: relative;
+            padding: 0 16px 26px;
+            background: @wht;
+            .first-row {
+                .row;
+                padding: 18px 0;
+                .first-row__cell {
+                    .inline;
+                    .middle;
+                    &:first-child {
+                        width: 70%;
+                    }
+                    &:last-child {
+                        width: 30%;
+                        text-align: right;
+                    }
+                    .cabinet-link {
+                        line-height: 1;
+                        a {
+                            color: @gray;
+                            text-transform: uppercase;
+                            font-size: 10px;
+                            letter-spacing: 0.5px;
+                            i {
+                                font-size: 11px;
+                                .inline;
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                    nav {
+                        ul {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            .row;
+                            li {
+                                .inline;
+                                .middle;
+                                line-height: 1;
+                                a {
+                                    text-transform: uppercase;
+                                    color: @gray;
+                                    font-size: 10px;
+                                    font-weight: 700;
+                                    letter-spacing: 0.3px;
+                                    display: block;
+                                    line-height: 1;
+                                }
+                                &.is-active {
+                                    a {
+                                        color: @black;
+                                    }
+                                }
+                                & + li {
+                                    margin-left: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .second-row {
+                a {
+                    display: block;
+                    text-align: center;
+                    background: @orange;
+                    line-height: 1;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 700;
+                    letter-spacing: 0.5px;
+                    padding: 18px 20px;
+                    color: @wht;
+                }
+            }
+            .third-row {
+                padding-top: 16px;
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    & + ul {
+                        margin-top: 20px;
+                    }
+                    li {
+                        color: @black;
+                        font-size: 12px;
+                        font-weight: 700;
+                        margin: 0 0 5px;
+                        a {
+                            margin: 0;
+                            font-weight: 400;
+                            color: @black;
+                            &:hover {
+                                color: @green;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
 .header {
+    .header-mobile {
+        display: none;
+        @media @mb {
+            display: block;
+            padding: 16px;
+            .row;
+            border-bottom: 1px solid @border;
+        }
+        .header-logo, .header-mobile__btn {
+            .inline;
+            .middle;
+        }
+        .header-logo {
+            width: 95px;
+        }
+        .header-mobile__btn {
+            width: ~'calc(100% - 95px)';
+            text-align: right;
+            .row;
+            a {
+                .inline;
+                .middle;
+                color: @black;
+                font-size: 13px;
+                & + a {
+                    margin-left: 20px;
+                }
+                &.mobile-menu__show {
+                    position: relative;
+                    z-index: 101;
+                }
+            }
+        }
+    }
     .header-top {
         .row;
         border-bottom: 1px solid @border;
+        @media @mb {
+            display: none;
+        }
         nav, .cabinet-link {
             .middle;
             .inline;
@@ -339,6 +514,9 @@ a {
         padding: 33px 0;
         border-bottom: 1px solid @border;
         .row;
+        @media @mb {
+            display: none;
+        }
         .header-logo, .header-phones {
             .inline;
             .middle;
@@ -428,6 +606,9 @@ a {
             @media @tab {
                 width: ~'calc(100% - 244px)';
             }
+            @media @mb {
+                width: 100%;
+            }
             ul {
                 .row;
                 list-style: none;
@@ -442,14 +623,24 @@ a {
                         @media @tab {
                             margin-left: 20px;
                         }
+                        @media @mb {
+                            margin-left: 16px;
+                        }
                     }
                     & > a {
                         padding: 20px 0;
+                        @media @mb {
+                            padding: 10px 0;
+                        }
                     }
                     a {
                         color: @black;
                         font-size: 18px;
                         font-weight: 700;
+                        @media @mb {
+                            font-size: 12px;
+                            display: block;
+                        }
                         &:hover {
                             color: @green;
                         }
@@ -464,6 +655,9 @@ a {
                         display: inline-block;
                         min-width: 240px;
                         width: auto;
+                        @media @mb {
+                            padding: 10px 16px;
+                        }
                     }
                     ul {
                         li {
@@ -477,6 +671,9 @@ a {
                             margin: 0 0 5px;
                             text-align: left;
                             display: block;
+                            @media @mb {
+                                margin: 0;
+                            }
                             & + li {
                                 margin-left: 0;
                             }
@@ -496,6 +693,10 @@ a {
                                 @media @tab {
                                     word-break: break-word;
                                 }
+                                @media @mb {
+                                    padding: 4px 0;
+                                    font-size: 12px;
+                                }
                                 &:hover {
                                     color: @green;
                                 }
@@ -507,6 +708,9 @@ a {
         }
         .header-buttons {
             .row;
+            @media @mb {
+                display: none;
+            }
             a {
                 .inline;
                 .middle;
@@ -660,6 +864,9 @@ a {
         border-bottom: 1px solid @border;
         padding: 35px 0;
         .row;
+        @media @mb {
+            padding: 20px 0;
+        }
         a {
             .inline;
             .middle;
@@ -680,6 +887,14 @@ a {
     .footer-nav {
         .row;
         padding: 40px 0 30px;
+        @media @mb {
+            padding: 0;
+        }
+        .container {
+            @media @mb {
+                padding: 0;
+            }
+        }
         .footer-nav__block {
             .inline;
             .top;
@@ -687,6 +902,15 @@ a {
             width: 25%;
             &:last-child {
                 padding-right: 0;
+            }
+            @media @mb {
+                width: 100%;
+                padding: 0 16px;
+                &:first-child {
+                    border-bottom: 1px solid @border;
+                    padding: 20px 16px;
+                    margin-bottom: 20px;
+                }
             }
             p {
                 font-size: 14px;
@@ -713,6 +937,30 @@ a {
                 padding: 0;
                 & + ul {
                     margin-top: 20px;
+                    @media @mb {
+                        margin-top: 0px;
+                    }
+                }
+                &.with-hidden-mb {
+                    li:not(.title) {
+                        @media @mb {
+                            display: none;
+                        }
+                    }
+                    li.title {
+                        i {
+                            display: none;
+                            @media @mb {
+                                .inline;
+                                .middle;
+                                font-size: 6px;
+                                margin-left: 5px;
+                                &.rotated {
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                    }
                 }
                 li {
                     color: @black;
@@ -735,6 +983,10 @@ a {
     .footer-dev {
         padding-bottom: 15px;
         border-bottom: 1px solid @border;
+        @media @mb {
+            border-top: 1px solid @border;
+            padding-top: 15px;
+        }
         a {
             font-size: 14px;
             line-height: 1.36;
@@ -751,14 +1003,24 @@ a {
             font-size: 12px;
             color: @gray;
             text-decoration: underline;
+            @media @mb {
+                display: block;
+            }
             & + a {
                 margin-left: 20px;
+                @media @mb {
+                    margin-left: 0;
+                    margin: 5px 0 0;
+                }
             }
         }
         p {
             font-size: 12px;
             margin: 0;
             color: @gray;
+            @media @mb {
+                margin: 5px 0 0;
+            }
         }
     }
 }
@@ -792,6 +1054,9 @@ a {
                     color: @wht;
                     max-width: 860px;
                     margin: 0 auto;
+                    @media @mb {
+                        font-size: 22px;
+                    }
                 }
                 a {
                     display: inline-block;
@@ -814,6 +1079,9 @@ a {
         left: 0;
         bottom: 40px;
         padding: 0 40px;
+        @media @mb {
+            display: none;
+        }
         a {
             color: @wht;
             display: inline-block;
@@ -842,6 +1110,9 @@ a {
         transform: translate(-50%, 0);
         margin: 0;
         .row;
+        @media @mb {
+            bottom: 10px;
+        }
         li {
             .inline;
             .middle;
@@ -1015,6 +1286,10 @@ a {
 
 .search-block {
     padding: 80px 0;
+    @media @mb {
+        padding: 0;
+        border-bottom: 1px solid @border;
+    }
     &.small-padding {
         padding: 0;
         margin: 0 0 2.5em;
@@ -1022,6 +1297,9 @@ a {
     form {
         border: 1px solid @green;
         position: relative;
+        @media @mb {
+            border: none;
+        }
         i, button {
             position: absolute;
         }
@@ -1035,12 +1313,22 @@ a {
             font-size: 24px;
             font-weight: 300;
             color: @black;
+            @media @mb {
+                font-size: 12px;
+                height: 60px;
+                padding: 0 0 0 24px;
+            }
         }
         i {
             font-size: 24px;
             color: @green;
             left: 30px;
             top: 40px;
+            @media @mb {
+                left: 0;
+                font-size: 16px;
+                top: 22px;
+            }
         }
         button {
             text-transform: uppercase;
@@ -1052,11 +1340,17 @@ a {
             padding: 18px 55px;
             right: 20px;
             top: 26px;
+            @media @mb {
+                display: none;
+            }
         }
         ul {
             list-style: none;
             margin: 0;
             padding: 0 180px 40px 80px;
+            @media @mb {
+                padding: 0 0px 40px 24px;
+            }
             .ui-autocomplete-category {
                 font-size: 10px;
                 font-weight: 700;
@@ -1071,6 +1365,9 @@ a {
                     line-height: 1.56;
                     cursor: pointer;
                     position: relative;
+                    @media @mb {
+                        font-size: 14px;
+                    }
                     &:hover {
                         color: @green;
                         &:before {
@@ -1114,17 +1411,30 @@ a {
         position: absolute;
         z-index: 10;
         top: 30px;
+        @media @mb {
+            position: static;
+            box-shadow: none;
+        }
         .tabs-title {
             border: none;
             padding: 20px;
+            @media @mb {
+                padding: 20px 0;
+            }
             & + li {
                 padding-left: 0;
+                @media @mb {
+                    margin-left: 10px;
+                }
             }
             a {
                 border-bottom: 2px solid transparent;
                 font-size: 14px;
                 color: @gray;
                 padding: 0;
+                @media @mb {
+                    font-size: 12px;
+                }
             }
             &.is-active {
                 a {
@@ -1152,11 +1462,17 @@ a {
             padding: 0;
             &:last-child {
                 border-top: 1px solid @border;
+                @media @mb {
+                    border-top: none;
+                }
             }
         }
     }
     .address-list {
         padding-top: 100px;
+        @media @mb {
+            padding-top: 0;
+        }
     }
 }
 
@@ -1271,11 +1587,20 @@ a {
         width: 25%;
         margin-bottom: 40px;
         padding-right: 20px;
+        @media @mb {
+            width: 100%;
+            border: 1px solid @border;
+            padding: 16px 14px 24px;
+            margin-bottom: 10px;
+        }
         .title {
             font-size: 18px;
             font-weight: 700;
             line-height: 1.33;
             margin: 0 0 4px;
+            @media @mb {
+                font-size: 16px;
+            }
         }
         .address {
             font-size: 14px;
@@ -1359,6 +1684,9 @@ a {
 .map-block {
     width: 100%;
     height: 600px;
+    @media @mb {
+        height: 400px;
+    }
     &.address {
         margin-bottom: 45px;
     }
@@ -1367,6 +1695,14 @@ a {
 .news-block {
     .row;
     padding: 80px 0;
+    @media @mb {
+        padding: 10px 0 0;
+    }
+    .container {
+        @media @mb {
+            padding: 0;
+        }
+    }
     &.list {
         padding: 0 0 60px;
         .news-block__item {
@@ -1381,6 +1717,11 @@ a {
         &:nth-child(4n) {
             margin-right: 0;
         }
+        @media @mb {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 25px;
+        }
         .news-block__item--img {
             margin-bottom: 18px;
             &:hover {
@@ -1391,6 +1732,10 @@ a {
         }
         .news-block__item--info {
             margin-bottom: 9px;
+            @media @mb {
+                padding: 0 16px;
+                margin-bottom: 0;
+            }
             a, span {
                 .inline;
                 text-transform: uppercase;
@@ -1415,6 +1760,10 @@ a {
             color: @black;
             display: block;
             margin: 0;
+            @media @mb {
+                padding: 0 16px;
+                font-size: 14px;
+            }
             &:hover {
                 color: @green;
             }
@@ -3163,6 +3512,14 @@ table {
     &.reveal-small {
         max-width: 435px;
         padding: 30px 40px 50px;
+        @media @mb {
+            padding: 24px 14px 40px;
+        }
+        .text-center {
+            @media @mb {
+                text-align: left;
+            }
+        }
     }
     &.reveal-big {
         max-width: 900px;
@@ -3184,6 +3541,14 @@ table {
             width: 50%;
             padding-right: 10px;
             margin-bottom: 15px;
+            @media @mb {
+                width: 100%;
+                border: 1px solid @border;
+                padding: 10px 14px;
+                &.red {
+                    border-color: @red;
+                }
+            }
             a {
                 font-size: 18px;
                 font-weight: 700;

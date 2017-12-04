@@ -35,7 +35,78 @@
 
     </head>
     <body>
+        <div class="mobile-nav">
+            <div class="mobile-menu">
+                <div class="mobile-menu__container">
+                    <div class="first-row">
+                        <div class="first-row__cell">
+                            <div class="cabinet-link">
+                                <a href="#"><i class="icon-lc"></i>Личный кабинет</a>
+                            </div>
+                        </div>
+                        <div class="first-row__cell">
+                            <nav>
+                                <ul>
+                                    <li class="is-active"><a href="#">Ру</a></li>
+                                    <li><a href="#">En</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="second-row">
+                        <a href="#">Записаться на прием</a>
+                    </div>
+                    <div class="third-row">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Акции</a></li>
+                                <li><a href="#">Специализированные центры</a></li>
+                                <li><a href="#">Отзывы</a></li>
+                                <li><a href="#">Блог о здоровье</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Для клиентов</li>
+                                <li><a href="#">Дисконтная система клиники</a></li>
+                                <li><a href="#">Лечение по ОМС и ДМС</a></li>
+                                <li><a href="#">Оформление справок в налоговые органы</a></li>
+                                <li><a href="#">Для корпоративных клиентов</a></li>
+                                <li><a href="#">Для страховых компаний</a></li>
+                                <li><a href="#">Для регионов</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Компания</li>
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Миссия</a></li>
+                                <li><a href="#">История</a></li>
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Руководство</a></li>
+                                <li><a href="#">Партнёры</a></li>
+                                <li><a href="#">Оборудование</a></li>
+                                <li><a href="#">Стандарт качества</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                            <ul>
+                                <li class="title">Работа в «Скандинавии»</li>
+                                <li><a href="#">Вакансии</a></li>
+                                <li><a href="#">Карьера</a></li>
+                                <li><a href="#">Охрана труда</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
         <header class="header">
+            <div class="header-mobile">
+                <div class="header-logo">
+                    <a href="/"><img src="images/logo.svg"></a>
+                </div>
+                <div class="header-mobile__btn">
+                    <a href="#" data-open="revealPhones"><i class="icon-phone"></i></a>
+                    <a href="#"><i class="icon-search-header"></i></a>
+                    <a href="#" class="mobile-menu__show"><i class="icon-burger"></i></a>
+                </div>
+            </div>
             <div class="header-top">
                 <div class="container">
                     <nav>
@@ -112,7 +183,7 @@
                             <li><a href="#">Цены</a></li>
                             <li><a href="#">Врачи</a></li>
                             <li><a href="#">Адреса клиник</a></li>
-                            <li>
+                            <li class="hide-mb">
                                 <a href="#" data-toggle="farmacy">Аптеки</a>
                                 <div class="dropdown-pane" id="farmacy" data-dropdown data-hover="true" data-hover-pane="true" data-alignment="center">
                                     <ul>
@@ -418,8 +489,8 @@
                                 <li><a href="#">Отзывы</a></li>
                                 <li><a href="#">Блог о здоровье</a></li>
                             </ul>
-                            <ul>
-                                <li class="title">Работа в «Скандинавии»</li>
+                            <ul class="with-hidden-mb">
+                                <li class="title">Работа в «Скандинавии»<i class="icon-chevron"></i></li>
                                 <li><a href="#">Вакансии</a></li>
                                 <li><a href="#">Карьера</a></li>
                                 <li><a href="#">Охрана труда</a></li>
@@ -428,8 +499,8 @@
                     </div>
                     <div class="footer-nav__block">
                         <nav>
-                            <ul>
-                                <li class="title">Для клиентов</li>
+                            <ul class="with-hidden-mb">
+                                <li class="title">Для клиентов<i class="icon-chevron"></i></li>
                                 <li><a href="#">Дисконтная система клиники</a></li>
                                 <li><a href="#">Лечение по ОМС и ДМС</a></li>
                                 <li><a href="#">Оформление справок в налоговые органы</a></li>
@@ -441,8 +512,8 @@
                     </div>
                     <div class="footer-nav__block">
                         <nav>
-                            <ul>
-                                <li class="title">Компания</li>
+                            <ul class="with-hidden-mb">
+                                <li class="title">Компания<i class="icon-chevron"></i></li>
                                 <li><a href="#">О компании</a></li>
                                 <li><a href="#">Миссия</a></li>
                                 <li><a href="#">История</a></li>

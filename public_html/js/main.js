@@ -111,7 +111,15 @@ $(document).ready(function () {
         $('.banner-slider').slick({
             dots: true,
             prevArrow: '.banner-controls .slick-prev',
-            nextArrow: '.banner-controls .slick-next'
+            nextArrow: '.banner-controls .slick-next',
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        arrows: false
+                    }
+                }
+            ]
         });
     }
 
@@ -156,11 +164,11 @@ $(document).ready(function () {
     /* Фиксированный хидер при скролле */
     var $this = $(this);
     var header = $('.header');
-    if ($this.scrollTop() >= header.outerHeight() && !$fixed) {
+    if ($this.scrollTop() >= header.outerHeight() && !$fixed && !device.mobile()) {
         header.addClass('fixed');
         $('body').css('padding-top', header.outerHeight() + "px");
         $fixed = true;
-    } else if ($this.scrollTop() < header.outerHeight() && $fixed) {
+    } else if ($this.scrollTop() < header.outerHeight() && $fixed && !device.mobile()) {
         header.removeClass('fixed');
         $('body').css('padding-top', "0px");
         $fixed = false;
@@ -185,13 +193,22 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.form-cell').find('button').text($this.text());
     $this.closest('.form-cell').find('input').val($this.attr('data-value'));
-}).on('click', '.js-show__search', function(e) {
+}).on('click', '.js-show__search', function (e) {
     var $this = $(this);
     $('.hidden-search').slideToggle();
     e.preventDefault();
-})
-.on('click touchstart', '.hidden-form-close', function(e) {
+}).on('click touchstart', '.hidden-form-close', function (e) {
     var $this = $(this);
     $('.hidden-search').slideToggle();
+    e.preventDefault();
+}).on('touchstart', '.with-hidden-mb .title', function () {
+    var $this = $(this);
+    $this.closest('ul').find('li').not($this).slideToggle();
+    $this.find('i').toggleClass('rotated');
+}).on('touchstart', '.mobile-menu__show', function (e) {
+    var $this = $(this);
+    $('body').toggleClass('stop');
+    $('.mobile-nav').toggleClass('is-open');
+    $this.find('i').toggleClass('icon-burger icon-close');
     e.preventDefault();
 });
