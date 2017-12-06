@@ -159,7 +159,7 @@
                         <ul>
                             <li>
                                 <a href="#" data-toggle="specialization">Направления</a>
-                                <div class="dropdown-pane" id="specialization" data-dropdown data-hover="true" data-hover-pane="true" data-alignment="center">
+                                <div class="dropdown-pane" id="specialization" data-dropdown data-hover="true" data-hover-pane="true" data-h-offset="-20">
                                     <ul>
                                         <li class="title">Популярные направления</li>
                                         <li><a href="#">Акушерство и гинекология</a></li>
@@ -185,7 +185,7 @@
                             <li><a href="#">Адреса клиник</a></li>
                             <li class="hide-mb">
                                 <a href="#" data-toggle="farmacy">Аптеки</a>
-                                <div class="dropdown-pane" id="farmacy" data-dropdown data-hover="true" data-hover-pane="true" data-alignment="center">
+                                <div class="dropdown-pane" id="farmacy" data-dropdown data-hover="true" data-hover-pane="true" data-h-offset="-20">
                                     <ul>
                                         <li><a href="#">Адреса аптек</a></li>
                                         <li><a href="#">Ассортимент и цены</a></li>
@@ -197,9 +197,9 @@
                     <div class="header-buttons">
                         <a data-open="revealPhones" class="fixed-show fixed-header__phones"><i class="icon-phone"></i></a>
                         <a data-toggle="burger-menu"><span>Все разделы</span><i class="icon-burger"></i></a>
-                        <a href="#"><i class="icon-search-header"></i></a>
+                        <a href="#mainSearch" class="js-focus__search"><i class="icon-search-header"></i></a>
                     </div>
-                    <div class="burger-menu dropdown-pane" id="burger-menu" data-dropdown data-auto-focus="true">
+                    <div class="burger-menu dropdown-pane" id="burger-menu" data-dropdown data-auto-focus="true" data-close-on-click="true">
                         <nav>
                             <ul>
                                 <li><a href="#">Акции</a></li>
@@ -266,16 +266,16 @@
                     <a class="slick-next"><i class="icon-arrow"></i></a>
                 </div>
             </div>
-            <div class="search-block">
+            <div class="search-block main" id="mainSearch">
                 <div class="container">
                     <form action="post" id='appendSearch'>
-                        <i class="icon-search-header"></i>
+                        <i class="icon-search-big"></i>
                         <input id='search' type="text" placeholder="Фамилия врача, специализация, направление или услуга">
                         <button type="submit">Искать</button>
                     </form>
                 </div>
             </div>
-            <div class="address-block">
+            <div class="address-block bordered">
                 <div class="container">
                     <ul class="tabs" data-tabs id="address">
                         <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Отделения на карте</a></li>
@@ -491,7 +491,7 @@
                         zoom: 10,
                         center: center
                     });
-                    var iconBase = '/images/svg/';
+                    var iconBase = 'images/svg/';
                     var icons = {
                         clinic: {
                             icon: iconBase + 'pin.svg'
@@ -575,7 +575,7 @@
                     </div>
                     <div class="news-block__item">
                         <div class="news-block__item--img">
-                            <a href="#"><img src="images/news-2.jpg"></a>
+                            <a href="#"><img src="images/foot.jpg"></a>
                         </div>
                         <div class="news-block__item--info">
                             <a href="#">блог</a>

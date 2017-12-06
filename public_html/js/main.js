@@ -238,15 +238,7 @@ $(document).ready(function () {
     $this.closest('.form-cell').find('input').val($this.attr('data-value'));
 }).on('click', '.js-show__search', function (e) {
     var $this = $(this);
-    $('.hidden-search').slideToggle();
-    e.preventDefault();
-}).on('click touchstart', '.hidden-form-close', function (e) {
-    if (e.handled === false)
-        return;
-    e.stopPropagation();
-    e.preventDefault();
-    e.handled = true;
-    var $this = $(this);
+    $this.find('i').toggleClass('icon-search-header icon-close');
     $('.hidden-search').slideToggle();
     e.preventDefault();
 }).on('touchstart', '.with-hidden-mb .title', function () {
@@ -270,4 +262,7 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.price-block__item').find('.right').slideToggle();
     $this.closest('.price-block__item').find('.price-block__item--clinic').slideToggle();
+}).on('click', '.js-focus__search', function (e) {
+    $('#search').focus();
+    e.preventDefault();
 });
