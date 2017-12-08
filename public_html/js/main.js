@@ -236,6 +236,7 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.form-cell').find('button').text($this.text());
     $this.closest('.form-cell').find('input').val($this.attr('data-value'));
+    $this.closest('.dropdown-pane').foundation('close');
 }).on('click', '.js-show__search', function (e) {
     var $this = $(this);
     $this.find('i').toggleClass('icon-search-header icon-close');
@@ -255,9 +256,11 @@ $(document).ready(function () {
 }).on('touchstart', '.toggle-filter', function () {
     var $this = $(this);
     $('.direction-category__filter').toggle();
+    $('body').toggleClass('stop');
 }).on('touchstart', '.close-filter', function () {
     var $this = $(this);
     $('.direction-category__filter').toggle();
+    $('body').toggleClass('stop');
 }).on('touchstart', '.price-block__item .name', function () {
     var $this = $(this);
     $this.closest('.price-block__item').find('.right').slideToggle();

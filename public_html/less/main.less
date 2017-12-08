@@ -259,6 +259,9 @@ h1 {
         margin: 1em 0 0.5em;
         font-size: 24px;
     }
+    & + .text-page.left {
+        margin-top: -10px;
+    }
 }
 h2 {
     font-size: 30px;
@@ -417,6 +420,7 @@ a {
                             margin: 0;
                             font-weight: 400;
                             color: @black;
+                            font-size: 14px;
                             &:hover {
                                 color: @green;
                             }
@@ -443,10 +447,10 @@ a {
             .middle;
         }
         .header-logo {
-            width: 95px;
+            width: 105px;
         }
         .header-mobile__btn {
-            width: ~'calc(100% - 95px)';
+            width: ~'calc(100% - 105px)';
             text-align: right;
             .row;
             a {
@@ -458,6 +462,10 @@ a {
                     margin-left: 20px;
                 }
                 &.mobile-menu__show {
+                    min-width: 18px;
+                    i {
+                        font-size: 11px;
+                    }
                     &.relative {
                         position: relative;
                         z-index: 101;
@@ -666,8 +674,11 @@ a {
                         font-size: 18px;
                         font-weight: 700;
                         @media @mb {
-                            font-size: 12px;
+                            font-size: 14px;
                             display: block;
+                        }
+                        @media @iph {
+                            font-size: 12px;
                         }
                         &:hover {
                             color: @green;
@@ -986,6 +997,9 @@ a {
                         }
                     }
                     li.title {
+                        @media @mb {
+                            display: inline-block;
+                        }
                         i {
                             display: none;
                             @media @mb {
@@ -1009,6 +1023,9 @@ a {
                         margin: 0;
                         font-weight: 400;
                         color: @gray;
+                        @media @mb {
+                            display: inline-block;
+                        }
                         &:hover {
                             color: @green;
                         }
@@ -1199,7 +1216,7 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        padding-bottom: 2.5em;
+        padding-bottom: 3em;
         .breadcrumbs {
             li {
                 color: @wht;
@@ -1336,7 +1353,7 @@ a {
     }
     &.small-padding {
         padding: 0;
-        margin: 0 0 1em;
+        margin: 0 0 2.5em;
         @media @mb {
             border-top: 1px solid @border;
         }
@@ -1359,6 +1376,9 @@ a {
             font-weight: 300;
             color: @black;
             border: 1px solid @border;
+            @media @mb {
+                border: none;
+            }
             &:focus {
                 border-color: @green;
             }
@@ -1476,6 +1496,9 @@ a {
         form {
             input {
                 border-color: @green;
+                @media @mb {
+                    border: none;
+                }
             }
         }
     }
@@ -1653,6 +1676,9 @@ a {
             border: none;
             outline: none;
             margin-right: 8px;
+            &.icon-stazionar {
+                font-size: 13.3px;
+            }
         }
         .office-info__block__icons {
             font-size: 10px;
@@ -1852,6 +1878,21 @@ a {
             margin-bottom: 10px;
         }
     }
+    &.equipment {
+        padding: 0 0 20px;
+    }
+    &.polling {
+        padding: 13px 0 0;
+        .news-block__item {
+            margin-bottom: 40px;
+            @media @mb {
+                margin-bottom: 20px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
     .news-block__item {
         .inline;
         .top;
@@ -1887,6 +1928,9 @@ a {
                 img {
                     opacity: 0.6;
                 }
+            }
+            & + .news-block__item--name {
+                margin-top: 14px;
             }
         }
         .news-block__item--info {
@@ -1994,6 +2038,9 @@ a {
             font-size: 24px;
         }
     }
+    h2 {
+        margin: 1.5em 0 10px;
+    }
     h4 {
         font-size: 18px;
         font-weight: 700;
@@ -2033,6 +2080,13 @@ a {
         & + .text-slider {
             margin-top: 40px;
         }
+    }
+    dfn {
+        font-style: normal;
+        font-size: 18px;
+        line-height: 1.67;
+        margin: 0 0 10px;
+        display: block;
     }
     .quote {
         margin-bottom: 3em;
@@ -2100,23 +2154,32 @@ a {
             .quote-avatar__text {
                 width: ~'calc(100% - 50px)';
                 padding-left: 10px;
-                span {
+                span,a {
                     display: block;
                     font-size: 14px;
                     line-height: 1.57;
+                    color: @black;
                     &:last-child {
                         color: @gray;
+                    }
+                }
+                a {
+                    &:hover {
+                        text-decoration: underline;
                     }
                 }
             }
         }
     }
-    ul:not(.breadcrumbs) {
-        margin: 0 0 2.5em 1.25em;
+    ul:not(.breadcrumbs):not(.pagination) {
+        margin: 0 0 1.5em 1.25em;
         li {
             font-size: 18px;
-            line-height: 1.67;
+            line-height: 1.56;
             margin: 0 0 0.5em;
+            &:last-child {
+                margin: 0;
+            }
             @media @mb {
                 font-size: 14px;
             }
@@ -2138,7 +2201,7 @@ a {
             }
         }
         &.accordion {
-            margin: 0 0 2.5em;
+            margin: 40px 0 70px;
         }
     }
     nav {
@@ -2169,6 +2232,10 @@ a {
             }
         }
     }
+    .pagination {
+        margin-top: 0;
+        margin-bottom: 70px;
+    }
     blockquote {
         color: @green;
         font-size: 24px;
@@ -2177,6 +2244,7 @@ a {
         border-left: 3px solid @green;
         padding: 0 0 0 37px;
         margin: 2em 0;
+        font-family: 'PT Serif', serif;
         @media @mb {
             font-size: 18px;
             margin: 1.5em 0;
@@ -2386,6 +2454,9 @@ a {
             }
         }
     }
+    .price-block {
+        margin-bottom: 3.5em;
+    }
 }
 
 .accordion {
@@ -2523,14 +2594,16 @@ a {
         margin-left: -16px;
     }
     &.with-margin {
-        margin-bottom: 3em;
+        margin-bottom: 3.5em;
     }
 }
 
 .pano {
     height: 450px;
     width: 100%;
+    margin-top: 15px;
     margin-bottom: 70px;
+    margin-top: 40px;
     @media @mb {
         height: 180px;
         margin-bottom: 0;
@@ -2553,6 +2626,7 @@ a {
 
 table {
     margin-bottom: 2.5em;
+    margin-top: 2.3em;
     @media @mb {
         margin-bottom: 1.5em;
         display: block;
@@ -2564,7 +2638,7 @@ table {
         border-bottom: 1px solid @border;
         tr {
             th {
-                padding: 0 15px 10px 0;
+                padding: 0 15px 15px 0;
                 font-size: 12px;
                 font-weight: 700;
                 letter-spacing: 1px;
@@ -2584,6 +2658,11 @@ table {
                     font-weight: 700;
                 }
             }
+            &:first-child {
+                td {
+                    padding: 15px 15px 0 0;
+                }
+            }
             &:nth-child(even) {
                 background: transparent;
             }
@@ -2595,7 +2674,7 @@ table {
     text-align: center;
     padding: 50px;
     border: 1px solid @border;
-    margin-bottom: 3em;
+    margin: 2.5em 0;
     @media @mb {
         padding: 26px 14px;
         margin-bottom: 1.5em;
@@ -2628,7 +2707,7 @@ table {
 
 .banner-picture {
     .row;
-    margin: 0 0 2.5em;
+    margin: 2.5em 0 2.5em;
     @media @mb {
         margin: 0 0 1.5em;
         display: flex;
@@ -3005,13 +3084,12 @@ table {
                 }
                 .date {
                     .inline;
-                    .middle;
-                    font-size: 12px;
-                    letter-spacing: 0.5px;
+                    vertical-align: text-bottom;
+                    font-size: 10px;
+                    font-weight: 700;
                     color: @gray;
                     text-transform: uppercase;
-                    font-weight: 400;
-                    margin-left: 20px;
+                    margin-left: 6px;
                     @media @mb {
                         display: block;
                         margin-left: 0;
@@ -3063,19 +3141,55 @@ table {
 
 .review-filter-block {
     .row;
-    select {
+    .dropdown-pane {
+        padding: 10px 0;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                margin: 0;
+                a {
+                    text-decoration: none;
+                    display: block;
+                    padding: 10px 20px;
+                    line-height: 1;
+                    color: @black;
+                    letter-spacing: normal;
+                    &:hover {
+                        background: @green;
+                        color: @wht;
+                    }
+                }
+            }
+        }
+    }
+    .form-cell {
+        width: ~'calc(33.33% - 6.66px)';
+        margin-right: 10px;
+        .inline;
+        .middle;
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+    }
+    select, button {
         .inline;
         .middle;
         .appearance;
         border: 1px solid @border;
         background: url(../images/svg/chevron.svg) no-repeat @wht;
-        background-position: 98% center;
-        width: ~'calc(33.33% - 6.66px)';
-        margin-right: 10px;
+        background-position: 96% center;
         font-size: 14px;
         height: 50px;
-        &:nth-child(3n) {
-            margin-right: 0;
+        box-shadow: none;
+        text-align: left;
+        color: @black;
+        width: 100%;
+        &:hover, &:focus {
+            background: url(../images/svg/chevron.svg) no-repeat @wht;
+            background-position: 96% center;
+            color: @black;
         }
         @media @mb {
             width: 100%;
@@ -3091,7 +3205,7 @@ table {
 }
 
 .reviews-button-block {
-    background: @border;
+    background: @dateBack;
     padding: 15px 20px;
     margin-bottom: 20px;
     .row;
@@ -3133,7 +3247,7 @@ table {
 .callback-form {
     padding: 50px;
     border: 1px solid @border;
-    margin: 0 0 2.5em;
+    margin: 2.5em 0 2.5em;
     @media @mb {
         padding: 26px 14px;
         margin: 0 0 1.5em;
@@ -3341,7 +3455,7 @@ table {
 .price-table {
     display: table;
     width: 100%;
-    margin-bottom: 2em;
+    margin-bottom: 1.4em;
     @media @mb {
         margin-bottom: 1em;
     }
@@ -3706,7 +3820,9 @@ table {
         border: 1px solid @border;
         @media @mb {
             display: none;
-            position: absolute;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
             top: 0;
             left: 0;
             width: 100%;
@@ -3727,9 +3843,9 @@ table {
         }
         .close-filter {
             position: absolute;
-            font-size: 20px;
+            font-size: 12px;
             top: 50%;
-            margin-top: -10px;
+            margin-top: -5px;
             right: 16px;
             i {
                 color: @black;
@@ -3774,6 +3890,10 @@ table {
                 border: none;
                 &:hover {
                     background: @hoverGreen;
+                }
+                @media @mb {
+                    display: block;
+                    margin: 0 auto;
                 }
             }
             a {
@@ -3890,6 +4010,9 @@ table {
                 &:hover {
                     border-bottom-color: transparent;
                 }
+                &:focus {
+                    background: transparent;
+                }
             }
             &.is-active {
                 a {
@@ -4004,6 +4127,7 @@ table {
             line-height: 1.43;
             margin: 5px 0;
             display: none;
+            color: @gray;
             @media @mb {
                 font-size: 12px;
             }
@@ -4020,6 +4144,13 @@ table {
                 font-size: 6px;
             }
         }
+    }
+    a.doctors-list__item {
+        .doctors-list__item--txt {
+            .name {
+                text-decoration: underline;
+            }
+        }
         &:hover {
             .doctors-list__item--img {
                 img {
@@ -4028,15 +4159,16 @@ table {
             }
             .name {
                 color: @green;
+                text-decoration: none;
             }
         }
     }
     &.wide {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         .doctors-list__item {
             width: ~'calc(25% - 18.75px)';
             margin-right: 25px;
-            margin-bottom: 25px;
+            margin-bottom: 45px;
             &:nth-child(3n) {
                 margin-right: 25px;
             }
@@ -4231,6 +4363,9 @@ table {
     &.reveal-big {
         max-width: 900px;
         padding: 50px 40px;
+        @media @mb {
+            padding: 24px 14px 40px;
+        }
     }
     .close-button {
         color: @black;
@@ -4347,6 +4482,10 @@ table {
                     &:nth-child(even) {
                         margin-right: 0;
                     }
+                    @media @mb {
+                        width: 100%;
+                        margin-right: 0;
+                    }
                 }
             }
             input {
@@ -4359,6 +4498,9 @@ table {
             }
             .btn-group {
                 .row;
+                @media @mb {
+                    margin-bottom: 15px;
+                }
                 label {
                     .inline;
                     .top;
