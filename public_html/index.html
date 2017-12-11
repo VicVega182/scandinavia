@@ -102,7 +102,7 @@
                     <a href="/"><img src="images/logo.svg"></a>
                 </div>
                 <div class="header-mobile__btn">
-                    <a href="#" data-open="revealPhones"><i class="icon-phone"></i></a>
+                    <a href="#" data-open="revealPhonesMobile"><i class="icon-phone"></i></a>
                     <a href="#"><i class="icon-search-header"></i></a>
                     <a href="#" class="mobile-menu__show"><i class="icon-burger"></i></a>
                 </div>
@@ -484,6 +484,50 @@
                     </div>
                 </div>
             </div>
+            <div class="news-block">
+                <div class="container">
+                    <div class="news-block__item">
+                        <div class="news-block__item--img">
+                            <a href="#"><img src="images/news-1.jpg"></a>
+                        </div>
+                        <div class="news-block__item--info">
+                            <a href="#">новости</a>
+                            <span>10 июля 2017</span>
+                        </div>
+                        <a href="#" class="news-block__item--name">23 августа 2017 г. в 11:00 состоится «День открытых дверей» для беременных</a>
+                    </div>
+                    <div class="news-block__item">
+                        <div class="news-block__item--img">
+                            <a href="#"><img src="images/news-2.jpg"></a>
+                        </div>
+                        <div class="news-block__item--info">
+                            <a href="#">блог</a>
+                            <span>10 июля 2017</span>
+                        </div>
+                        <a href="#" class="news-block__item--name">Курсы скорочтения и развития памяти для детей</a>
+                    </div>
+                    <div class="news-block__item">
+                        <div class="news-block__item--img">
+                            <a href="#"><img src="images/foot.jpg"></a>
+                        </div>
+                        <div class="news-block__item--info">
+                            <a href="#">блог</a>
+                            <span>8 июня 2017</span>
+                        </div>
+                        <a href="#" class="news-block__item--name">Жизнь без варикоза</a>
+                    </div>
+                    <div class="news-block__item">
+                        <div class="news-block__item--img">
+                            <a href="#"><img src="images/news-3.jpg"></a>
+                        </div>
+                        <div class="news-block__item--info">
+                            <a href="#">новости</a>
+                            <span>6 мая 2017</span>
+                        </div>
+                        <a href="#" class="news-block__item--name">Открыто новое отделение дерматологии. Запущены курсы по развитию скорочтения и памяти</a>
+                    </div>
+                </div>
+            </div>
             <script>
                 function initMap() {
                     var center = {lat: 59.937515, lng: 30.304616};
@@ -551,50 +595,6 @@
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzhnf0cSe6sJaIS050N1NOcZnSt5dtFqQ&callback=initMap">
             </script>
-            <div class="news-block">
-                <div class="container">
-                    <div class="news-block__item">
-                        <div class="news-block__item--img">
-                            <a href="#"><img src="images/news-1.jpg"></a>
-                        </div>
-                        <div class="news-block__item--info">
-                            <a href="#">новости</a>
-                            <span>10 июля 2017</span>
-                        </div>
-                        <a href="#" class="news-block__item--name">23 августа 2017 г. в 11:00 состоится «День открытых дверей» для беременных</a>
-                    </div>
-                    <div class="news-block__item">
-                        <div class="news-block__item--img">
-                            <a href="#"><img src="images/news-2.jpg"></a>
-                        </div>
-                        <div class="news-block__item--info">
-                            <a href="#">блог</a>
-                            <span>10 июля 2017</span>
-                        </div>
-                        <a href="#" class="news-block__item--name">Курсы скорочтения и развития памяти для детей</a>
-                    </div>
-                    <div class="news-block__item">
-                        <div class="news-block__item--img">
-                            <a href="#"><img src="images/foot.jpg"></a>
-                        </div>
-                        <div class="news-block__item--info">
-                            <a href="#">блог</a>
-                            <span>8 июня 2017</span>
-                        </div>
-                        <a href="#" class="news-block__item--name">Жизнь без варикоза</a>
-                    </div>
-                    <div class="news-block__item">
-                        <div class="news-block__item--img">
-                            <a href="#"><img src="images/news-3.jpg"></a>
-                        </div>
-                        <div class="news-block__item--info">
-                            <a href="#">новости</a>
-                            <span>6 мая 2017</span>
-                        </div>
-                        <a href="#" class="news-block__item--name">Открыто новое отделение дерматологии. Запущены курсы по развитию скорочтения и памяти</a>
-                    </div>
-                </div>
-            </div>
         </div>
         <footer class="footer">
             <div class="footer-social">
@@ -673,6 +673,40 @@
                 </div>
             </div>
         </footer>
+        <div class="reveal reveal-small" id="revealPhonesMobile" data-reveal>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <i class="icon-close"></i>
+            </button>
+            <h3>Телефоны</h3>
+            <div class="reveal-phones__list">
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-77">Колл-центр</a>
+                    <a class="small" href="tel:+ 7 (812) 600-77-77">Позвонить</a>
+                    <p><span>+ 7 (812) 600-77-77</span> ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+                <div class="reveal-phones__item red">
+                    <a href="tel:+ 7 (812) 600-77-77">Колл-центр</a>
+                    <a class="small" href="tel:+ 7 (812) 600-77-77">Позвонить</a>
+                    <p><span>+ 7 (812) 600-77-77</span> ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-77">Колл-центр</a>
+                    <a class="small" href="tel:+ 7 (812) 600-77-77">Позвонить</a>
+                    <p><span>+ 7 (812) 600-77-77</span> ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-77">Колл-центр</a>
+                    <a class="small" href="tel:+ 7 (812) 600-77-77">Позвонить</a>
+                    <p><span>+ 7 (812) 600-77-77</span> ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+                <div class="reveal-phones__item">
+                    <a href="tel:+ 7 (812) 600-77-77">Колл-центр</a>
+                    <a class="small" href="tel:+ 7 (812) 600-77-77">Позвонить</a>
+                    <p><span>+ 7 (812) 600-77-77</span> ПН—СБ: 8—22 ВС: 9—19</p>
+                </div>
+            </div>
+            <a class="reveal-callback" data-open="revealCallback">Заказать обратый звонок</a>
+        </div>
         <div class="reveal reveal-small" id="revealPhones" data-reveal>
             <button class="close-button" data-close aria-label="Close modal" type="button">
                 <i class="icon-close"></i>

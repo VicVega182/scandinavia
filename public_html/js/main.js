@@ -55,6 +55,7 @@ function deactivateSubmenu(row) {
 
 $(document).ready(function () {
 
+    flag = false;
     $fixed = false;
 
     $(function () {
@@ -218,15 +219,17 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.doctors-list__item').find('.doctors-hidden-text').slideToggle();
     $this.find('span').toggleText('Подробнее', 'Скрыть');
-}).on('click touchstart', '.partners-show-all', function (e) {
-    if (e.handled === false)
-        return;
-    e.stopPropagation();
-    e.preventDefault();
-    e.handled = true;
-    var $this = $(this);
-    $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
-    $this.find('span').toggleText('Подробнее', 'Скрыть');
+}).on('touchstart click', '.partners-show-all', function (e) {
+    if (!flag) {
+        flag = true;
+        setTimeout(function () {
+            flag = false;
+        }, 100);
+        var $this = $(this);
+        $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
+        $this.find('span').toggleText('Показать еще', 'Скрыть');
+    }
+    return false;
 }).on('click touchstart', '.dropdown-pane ul li a', function (e) {
     if (e.handled === false)
         return;
@@ -261,10 +264,12 @@ $(document).ready(function () {
     var $this = $(this);
     $('.direction-category__filter').toggle();
     $('body').toggleClass('stop');
-}).on('touchstart', '.price-block__item .name', function () {
+}).on('touchstart', '.price-block__item', function (e) {
     var $this = $(this);
-    $this.closest('.price-block__item').find('.right').slideToggle();
-    $this.closest('.price-block__item').find('.price-block__item--clinic').slideToggle();
+    if (!$(e.target).is('a')) {
+        $this.closest('.price-block__item').find('.right').slideToggle();
+        $this.closest('.price-block__item').find('.price-block__item--clinic').slideToggle();
+    }
 }).on('click', '.js-focus__search', function (e) {
     $('#search').focus();
     e.preventDefault();
