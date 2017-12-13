@@ -8,6 +8,7 @@
 
         <!-- SCRIPT -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script> <!-- Jquery mobile -->
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!-- Jquery UI -->
         <script src="js/what-input.js"></script><!-- Plugin for foundation -->
         <script src="js/foundation.min.js"></script><!-- Foundation -->
@@ -363,73 +364,6 @@
                     </div>
                 </div>
                 <div id="map" class="text-map with-margin"></div>
-                <script>
-                    function initMap() {
-                        var center = {lat: 59.937515, lng: 30.304616};
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 10,
-                            center: center
-                        });
-                        var iconBase = '/images/svg/';
-                        var icons = {
-                            clinic: {
-                                icon: iconBase + 'pin.svg'
-                            },
-                            farma: {
-                                icon: iconBase + 'pin-farma.svg'
-                            }
-                        };
-                        var features = [
-                            {
-                                position: new google.maps.LatLng(60.006784, 30.254512),
-                                type: 'farma'
-                            }, {
-                                position: new google.maps.LatLng(59.935546, 30.347060),
-                                type: 'farma'
-                            }, {
-                                position: new google.maps.LatLng(59.851669, 30.320338),
-                                type: 'farma'
-                            }, {
-                                position: new google.maps.LatLng(59.941311, 30.370365),
-                                type: 'farma'
-                            }, {
-                                position: new google.maps.LatLng(60.039350, 30.333219),
-                                type: 'farma'
-                            }, {
-                                position: new google.maps.LatLng(60.018476, 30.323120),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(60.011066, 30.350016),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(59.865297, 30.411792),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(59.944558, 30.239029),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(59.838024, 30.250546),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(60.101856, 29.969269),
-                                type: 'clinic'
-                            }, {
-                                position: new google.maps.LatLng(59.877523, 30.468686),
-                                type: 'clinic'
-                            }
-                        ];
-                        features.forEach(function (feature) {
-                            var marker = new google.maps.Marker({
-                                position: feature.position,
-                                icon: icons[feature.type].icon,
-                                map: map
-                            });
-                        });
-                    }
-                </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzhnf0cSe6sJaIS050N1NOcZnSt5dtFqQ&callback=initMap">
-                </script>
                 <h2>Прием ведут врачи-специалисты</h2>
                 <div class="doctors-list">
                     <div class="doctors-list__item">
@@ -471,6 +405,73 @@
                 </div>
             </div>
         </div>
+        <script>
+            function initMap() {
+                var center = {lat: 59.937515, lng: 30.304616};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: center
+                });
+                var iconBase = '/images/svg/';
+                var icons = {
+                    clinic: {
+                        icon: iconBase + 'pin.svg'
+                    },
+                    farma: {
+                        icon: iconBase + 'pin-farma.svg'
+                    }
+                };
+                var features = [
+                    {
+                        position: new google.maps.LatLng(60.006784, 30.254512),
+                        type: 'farma'
+                    }, {
+                        position: new google.maps.LatLng(59.935546, 30.347060),
+                        type: 'farma'
+                    }, {
+                        position: new google.maps.LatLng(59.851669, 30.320338),
+                        type: 'farma'
+                    }, {
+                        position: new google.maps.LatLng(59.941311, 30.370365),
+                        type: 'farma'
+                    }, {
+                        position: new google.maps.LatLng(60.039350, 30.333219),
+                        type: 'farma'
+                    }, {
+                        position: new google.maps.LatLng(60.018476, 30.323120),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(60.011066, 30.350016),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(59.865297, 30.411792),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(59.944558, 30.239029),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(59.838024, 30.250546),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(60.101856, 29.969269),
+                        type: 'clinic'
+                    }, {
+                        position: new google.maps.LatLng(59.877523, 30.468686),
+                        type: 'clinic'
+                    }
+                ];
+                features.forEach(function (feature) {
+                    var marker = new google.maps.Marker({
+                        position: feature.position,
+                        icon: icons[feature.type].icon,
+                        map: map
+                    });
+                });
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzhnf0cSe6sJaIS050N1NOcZnSt5dtFqQ&callback=initMap">
+        </script>
         <footer class="footer">
             <div class="footer-social">
                 <div class="container">

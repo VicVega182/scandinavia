@@ -111,6 +111,7 @@
         visibility: hidden;
         width: 0;
         height: 0;
+        border: none!important;
     }
 }
 
@@ -264,20 +265,23 @@ h1 {
     font-size: 40px;
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 0 0.7em;
+    margin: 0 0 0.45em;
     @media @mb {
         margin: 1em 0 0.5em;
         font-size: 24px;
     }
     & + .text-page.left {
         margin-top: -10px;
+        @media @mb {
+            margin-top: 0;
+        }
     }
 }
 h2 {
     font-size: 30px;
     font-weight: 700;
     line-height: 1.47;
-    margin: 0 0 10px;
+    margin: 0 0 14px;
     @media @mb {
         font-size: 20px;
     }
@@ -314,7 +318,7 @@ a {
     z-index: 100;
     background: transparent;
     width: 100%;
-    height: 100%;
+    height: ~'calc(100% - 100px)';
     transition: -webkit-transform .45s cubic-bezier(.19,1,.22,1);
     transition: transform .45s cubic-bezier(.19,1,.22,1);
     transition: transform .45s cubic-bezier(.19,1,.22,1),-webkit-transform .45s cubic-bezier(.19,1,.22,1);
@@ -322,7 +326,7 @@ a {
     transform: translateX(-100%);
     overflow-x: hidden;
     overflow-y: auto;
-    padding-top: 99px;
+    margin-top: 100px;
     &.is-open {
         -webkit-transform: translateX(0);
         transform: translateX(0);
@@ -423,7 +427,7 @@ a {
                     }
                     li {
                         color: @black;
-                        font-size: 12px;
+                        font-size: 14px;
                         font-weight: 700;
                         margin: 0 0 5px;
                         a {
@@ -444,6 +448,17 @@ a {
 }
 
 .header {
+    &.mobile-menu-open {
+        position: relative;
+        z-index: 101;
+        .header-mobile {
+            .header-logo {
+                .green {
+                    display: inline-block;
+                }
+            }
+        }
+    }
     .header-mobile {
         display: none;
         @media @mb {
@@ -457,24 +472,43 @@ a {
             .middle;
         }
         .header-logo {
-            width: 105px;
+            width: 177px;
+            a {
+                display: inline-block;
+                vertical-align: middle;
+                img {
+                    max-width: 105px;
+                }
+                &.green {
+                    font-size: 10px;
+                    font-weight: 700;
+                    letter-spacing: 0.3px;
+                    color: @green;
+                    text-transform: uppercase;
+                    display: none;
+                    margin-left: 10px;
+                }
+            }
         }
         .header-mobile__btn {
-            width: ~'calc(100% - 105px)';
+            width: ~'calc(100% - 177px)';
             text-align: right;
             .row;
             a {
                 .inline;
                 .middle;
                 color: @black;
-                font-size: 13px;
+                font-size: 14px;
                 & + a {
                     margin-left: 20px;
                 }
                 &.mobile-menu__show {
                     min-width: 18px;
                     i {
-                        font-size: 11px;
+                        font-size: 12px;
+                        &.icon-close {
+                            font-size: 14px;
+                        }
                     }
                     &.relative {
                         position: relative;
@@ -706,6 +740,8 @@ a {
                         width: auto;
                         @media @mb {
                             padding: 10px 16px;
+                            top: 39px!important;
+                            left: -16px!important;
                         }
                     }
                     ul {
@@ -777,8 +813,14 @@ a {
                 &:last-child {
                     border-right: 1px solid @border;
                 }
+                &:hover {
+                    color: @green;
+                }
                 i {
                     font-size: 12px;
+                    &.icon-close {
+                        font-size: 16px;
+                    }
                     &.icon-burger {
                         .inline;
                         margin-left: 25px;
@@ -916,7 +958,7 @@ a {
     .footer-social {
         border-top: 1px solid @border;
         border-bottom: 1px solid @border;
-        padding: 35px 0;
+        padding: 30px 0;
         .row;
         @media @mb {
             padding: 20px 0;
@@ -926,6 +968,7 @@ a {
             .middle;
             width: 25%;
             text-align: center;
+            line-height: 1;
             i {
                 color: @gray;
                 font-size: 20px;
@@ -1248,6 +1291,9 @@ a {
         right: 0;
         bottom: 0;
         padding-bottom: 3em;
+        @media @mb {
+            padding-bottom: 1.5em;
+        }
         .breadcrumbs {
             li {
                 color: @wht;
@@ -1346,7 +1392,7 @@ a {
         ul {
             list-style: none;
             margin: 0;
-            padding: 0 180px 40px 80px;
+            padding: 0 180px 40px 90px;
             .ui-autocomplete-category {
                 font-size: 10px;
                 font-weight: 700;
@@ -1406,10 +1452,12 @@ a {
         margin: 0 0 2.5em;
         @media @mb {
             border-top: 1px solid @border;
+            margin: 0 0 1.25em;
         }
     }
     form {
         position: relative;
+        border: 1px solid @border;
         @media @mb {
             border: none;
         }
@@ -1425,15 +1473,15 @@ a {
             font-size: 24px;
             font-weight: 300;
             color: @black;
-            border: 1px solid @border;
-            &:focus {
-                border-color: @green;
-            }
+            border: none;
             @media @mb {
                 font-size: 12px;
                 height: 60px;
                 padding: 0 0 0 24px;
+            }
+            &:focus {
                 border: none;
+                box-shadow: none;
             }
         }
         i {
@@ -1542,11 +1590,9 @@ a {
     }
     &.main {
         form {
+            border-color: @green;
             input {
-                border-color: @green;
-                @media @mb {
-                    border: none;
-                }
+                border: none;
             }
         }
     }
@@ -1593,6 +1639,9 @@ a {
                 font-size: 14px;
                 color: @gray;
                 padding: 0;
+                &:hover {
+                    color: #767676;
+                }
                 @media @mb {
                     font-size: 12px;
                 }
@@ -1783,20 +1832,18 @@ a {
             margin-bottom: 10px;
         }
         .title {
-            font-size: 10px;
+            font-size: 18px;
             font-weight: 700;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
+            line-height: 1.33;
             font-weight: 700;
-            margin: 0;
-            color: @gray;
+            margin: 0 0 5px;
             @media @mb {
                 font-size: 16px;
             }
         }
         .address {
             font-size: 14px;
-            line-height: 1.57;
+            line-height: 1.8;
             margin: 0;
         }
         p, a {
@@ -1805,7 +1852,7 @@ a {
             line-height: 1.43;
             color: @black;
             & + .info-group {
-                margin-top: 15px;
+                margin-top: 7px;
             }
         }
         .metro {
@@ -1848,7 +1895,7 @@ a {
         }
         .info-group {
             & + .info-group {
-                margin-top: 15px;
+                margin-top: 11px;
             }
             p {
                 margin: 0;
@@ -1864,7 +1911,7 @@ a {
             }
         }
         .clinic-group {
-            margin-top: 15px;
+            margin-top: 12px;
             i {
                 color: @gray;
                 font-size: 18px;
@@ -1935,7 +1982,7 @@ a {
             @media @mb {
                 margin-bottom: 34px;
                 &:last-of-type {
-                    margin-bottom: 0;
+                    margin-bottom: 24px;
                 }
                 .news-block__item--info, .news-block__item--name, .news-block__item--text {
                     padding: 0;
@@ -1951,7 +1998,7 @@ a {
         padding: 0 0 20px;
     }
     &.polling {
-        padding: 13px 0 0;
+        padding: 13px 0 20px;
         .news-block__item {
             margin-bottom: 40px;
             @media @mb {
@@ -1995,6 +2042,10 @@ a {
                 border-radius: 11px;
                 left: 8px;
                 top: 8px;
+                z-index: 1;
+                @media @mb {
+                    top: 10px;
+                }
             }
             &:hover {
                 img {
@@ -2034,7 +2085,7 @@ a {
         .news-block__item--name {
             font-size: 18px;
             font-weight: 700;
-            line-height: 1.44;
+            line-height: 1.5;
             color: @black;
             display: block;
             margin: 0;
@@ -2104,13 +2155,16 @@ a {
         padding: 0;
         p {
             margin: 0 0 1.5em;
+            &:last-child {
+                margin: 0 0 3.5em;
+            }
         }
     }
     h1 {
         font-size: 40px;
         font-weight: 700;
         line-height: 1.25;
-        margin: 0 0 0.7em;
+        margin: 0 0 0.4em;
         @media @mb {
             margin: 1em 0 0.5em;
             font-size: 24px;
@@ -2136,6 +2190,12 @@ a {
             font-size: 14px;
             margin: 0 0 1.1em;
         }
+        & + h3 {
+            padding-top: 18px;
+            @media @mb {
+                padding-top: 0;
+            }
+        }
         a {
             color: @black;
             text-decoration: underline;
@@ -2150,6 +2210,9 @@ a {
         }
         img {
             margin-bottom: 0.7em;
+            @media @mb {
+                margin-bottom: 1.7em;
+            }
         }
         & + p {
             img {
@@ -2166,9 +2229,12 @@ a {
         line-height: 1.67;
         margin: 0 0 10px;
         display: block;
+        @media @mb {
+            font-size: 14px;
+        }
     }
     .quote {
-        margin-bottom: 3em;
+        margin-bottom: 2.5em;
         @media @mb {
             margin-bottom: 1.5em;
         }
@@ -2181,7 +2247,7 @@ a {
             font-size: 24px;
             font-style: italic;
             line-height: 1.5;
-            margin: 0 0 1em;
+            margin: 0 0 0.8em;
             font-family: 'PT Serif', serif;
             @media @mb {
                 font-size: 18px;
@@ -2250,10 +2316,22 @@ a {
             }
         }
     }
-    ul:not(.breadcrumbs):not(.pagination) {
-        margin: 0 0 1.5em 1.25em;
+    ul:not(.breadcrumbs):not(.pagination):not(.tabs) {
+        margin: 0 0 1.5em 2.2em;
+        &:last-child {
+            margin-bottom: 60px;
+            @media @mb {
+                margin-bottom: 30px;
+            }
+        }
         @media @mb {
             margin: 0 0 1.1em 1.25em;
+        }
+        & + h3 {
+            padding-top: 22px;
+            @media @mb {
+                padding-top: 0;
+            }
         }
         li {
             font-size: 18px;
@@ -2284,13 +2362,16 @@ a {
         }
         &.accordion {
             margin: 40px 0 70px;
+            @media @mb {
+                margin: 40px 0;
+            }
         }
     }
     nav {
         ul:not(.breadcrumbs) {
             list-style: none;
             padding: 0;
-            margin: 0 0 2.5em!important;
+            margin: 0 0 3.1em!important;
             column-count: 2;
             @media @mb {
                 column-count: 1;
@@ -2317,6 +2398,9 @@ a {
     .pagination {
         margin-top: 0;
         margin-bottom: 70px;
+        @media @mb {
+            margin-bottom: 40px;
+        }
     }
     blockquote {
         color: @green;
@@ -2335,6 +2419,10 @@ a {
     form {
         max-width: 600px;
         margin-bottom: 30px;
+        padding-top: 15px;
+        &:last-child {
+            margin-bottom: 70px;
+        }
         .form-error {
             margin: 0;
         }
@@ -2343,7 +2431,7 @@ a {
             margin-bottom: 10px;
             .form-cell {
                 .inline;
-                .top;
+                .middle;
                 position: relative;
                 &:first-child {
                     width: 180px;
@@ -2361,6 +2449,7 @@ a {
                 }
                 p {
                     margin: 0;
+                    line-height: 1.2;
                     @media @mb {
                         font-weight: 700;
                     }
@@ -2382,6 +2471,9 @@ a {
                                 display: block;
                                 padding: 10px 20px;
                                 line-height: 1;
+                                @media @mb {
+                                    padding: 10px;
+                                }
                                 &:hover {
                                     background: @green;
                                     color: @wht;
@@ -2393,7 +2485,7 @@ a {
                 button {
                     .appearance;
                     box-shadow: none;
-                    height: 50px;
+                    height: 60px;
                     border: 1px solid @border;
                     margin-bottom: 0px;
                     background: url(../images/svg/chevron.svg) no-repeat @wht;
@@ -2407,7 +2499,7 @@ a {
                         border-color: @green;
                     }
                     @media @mb {
-                        padding: 0 5px;
+                        padding: 0 10px;
                         font-size: 14px;
                     }
                 }
@@ -2432,7 +2524,7 @@ a {
                     &:not([type="checkbox"]) {
                         .appearance;
                         box-shadow: none;
-                        height: 50px;
+                        height: 60px;
                         border: 1px solid @border;
                         margin-bottom: 0px;
                         &:focus {
@@ -2478,6 +2570,9 @@ a {
                         border-radius: 0;
                         height: 50px;
                         padding: 3px 0;
+                        @media @mb {
+                            padding: 6px 0;
+                        }
                         & + label {
                             border-left-color: transparent;
                         }
@@ -2490,6 +2585,9 @@ a {
                                 }
                             }
                         }
+                        input {
+                            height: 0;
+                        }
                         &.focus {
                             outline: none;
                         }
@@ -2499,6 +2597,7 @@ a {
                             line-height: 40px;
                             @media @mb {
                                 font-size: 14px;
+                                padding: 3px 0;
                             }
                             &.active {
                                 color: @green;
@@ -2681,6 +2780,9 @@ a {
     }
     &.with-margin {
         margin-bottom: 3.5em;
+        @media @mb {
+            margin-bottom: 2.5em;
+        }
     }
 }
 
@@ -2763,7 +2865,7 @@ table {
     margin: 2.5em 0;
     @media @mb {
         padding: 26px 14px;
-        margin-bottom: 1.5em;
+        margin: 1.5em 0;
     }
     p {
         font-size: 24px;
@@ -2795,7 +2897,7 @@ table {
     .row;
     margin: 2.5em 0 2.5em;
     @media @mb {
-        margin: 0 0 1.5em;
+        margin: 1.5em 0;
         display: flex;
         flex-direction: column-reverse;
         width: ~'calc(100% + 32px)';
@@ -3134,6 +3236,9 @@ table {
 
 .review-block {
     margin-bottom: 3em;
+    @media @mb {
+        margin-bottom: 1.3em;
+    }
     &.noborder {
         .review-block__list {
             .review-block__item {
@@ -3206,6 +3311,9 @@ table {
                 font-weight: 700;
                 letter-spacing: 0.3px;
                 margin-top: 16px;
+                @media @mb {
+                    margin-top: 10px;
+                }
                 &:hover {
                     color: @green;
                 }
@@ -3233,14 +3341,19 @@ table {
     .row;
     .dropdown-pane {
         padding: 10px 0;
+        width: 100%;
+        border-top: none;
+        @media @mb {
+            border-top: 1px solid @border;
+        }
         ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0!important;
             li {
-                margin: 0;
+                margin: 0!important;
                 a {
-                    text-decoration: none;
+                    text-decoration: none!important;
                     display: block;
                     padding: 10px 20px;
                     line-height: 1;
@@ -3248,7 +3361,7 @@ table {
                     letter-spacing: normal;
                     &:hover {
                         background: @green;
-                        color: @wht;
+                        color: @wht!important;
                     }
                 }
             }
@@ -3259,6 +3372,7 @@ table {
         margin-right: 10px;
         .inline;
         .middle;
+        position: relative;
         &:nth-of-type(3n) {
             margin-right: 0;
         }
@@ -3268,6 +3382,7 @@ table {
                 display: inline-block;
                 width: auto;
                 padding-right: 20px;
+                outline: none;
             }
         }
     }
@@ -3323,6 +3438,7 @@ table {
         padding: 18px 30px;
         @media @mb {
             padding: 18px 9px;
+            font-size: 11px;
         }
         & + a {
             margin-left: 10px;
@@ -3426,6 +3542,9 @@ table {
     }
     h2 {
         margin: 0 0 20px;
+        @media @mb {
+            margin: 1.3em 0 0.7em;
+        }
     }
     .price-block__showall {
         .inline;
@@ -3440,6 +3559,11 @@ table {
         margin-top: 20px;
         &:hover {
             border-color: @green;
+        }
+        @media @mb {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
         }
     }
     .price-block__item {
@@ -3677,6 +3801,7 @@ table {
             padding-right: 10px;
         }
         .price-block {
+            margin: 0 0 2.5em;
             @media @mb {
                 .price-block__item {
                     margin-bottom: 10px;
@@ -3721,7 +3846,7 @@ table {
                     }
                 }
                 .news-block__item--info {
-                    margin-bottom: 0;
+                    margin-bottom: 2px;
                 }
             }
         }
@@ -3847,7 +3972,7 @@ table {
                         color: @green;
                         font-size: 24px;
                         font-weight: 300;
-                        line-height: 1.25;
+                        line-height: 1;
                     }
                     a {
                         font-size: 18px;
@@ -3858,7 +3983,7 @@ table {
                         }
                     }
                     & + .first-letter {
-                        margin-top: 30px;
+                        margin-top: 36px;
                     }
                 }
             }
@@ -3944,10 +4069,16 @@ table {
         }
         .close-filter {
             position: absolute;
-            font-size: 12px;
+            font-size: 14px;
             top: 50%;
-            margin-top: -5px;
-            right: 16px;
+            margin-top: -20px;
+            right: 4px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            z-index: 2;
             i {
                 color: @black;
             }
@@ -4077,12 +4208,18 @@ table {
                 .middle;
                 font-size: 6px;
                 margin-left: 5px;
+                &.rotate {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
 }
 
 .page-tabs {
+    &.with-margin-bottom {
+        margin-bottom: 60px;
+    }
     .tabs {
         background-color: @wht;
         border: none;
@@ -4098,7 +4235,7 @@ table {
                 margin-left: 20px;
                 @media @mb {
                     margin-left: 0;
-                    margin-top: 10px;
+                    margin-top: 7px;
                     clear: both;
                 }
             }
@@ -4108,7 +4245,9 @@ table {
                 color: @gray;
                 padding: 0;
                 padding: 6px 0;
-                margin-bottom: -1px;
+                @media @mb {
+                    padding: 3px 0;
+                }
                 &:hover {
                     border-bottom-color: transparent;
                 }
@@ -4133,6 +4272,7 @@ table {
             }
             .tabs-title {
                 & + li {
+                    margin-left: 20px;
                     @media @mb {
                         margin-top: 0;
                         margin-left: 20px;
@@ -4159,7 +4299,7 @@ table {
         .top;
         width: ~'calc(33.33% - 16.66px)';
         margin-right: 25px;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
         &:nth-child(3n) {
             margin-right: 0;
         }
@@ -4181,7 +4321,7 @@ table {
         }
         .doctors-list__item--img {
             height: 390px;
-            margin: 0 0 10px;
+            margin: 0 0 14px;
             @media @mb {
                 width: 100px;
                 height: 140px;
@@ -4213,6 +4353,7 @@ table {
             font-weight: 700;
             line-height: 1.44;
             color: @black;
+            margin-bottom: 4px;
             @media @mb {
                 font-size: 14px;
             }
@@ -4248,6 +4389,10 @@ table {
             }
             i {
                 font-size: 6px;
+                &.rotate {
+                    transform: rotate(180deg);
+                    margin-top: 1px;
+                }
                 @media @mb {
                     font-size: 5px;
                     margin-top: -2px;
@@ -4317,6 +4462,13 @@ table {
     .row;
     text-align: left;
     margin-top: 15px;
+    &.news {
+        margin-top: 5px;
+    }
+    &.doctors {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
     li {
         width: 50px;
         height: 50px;
@@ -4363,7 +4515,7 @@ table {
 }
 
 .contacts {
-    margin-bottom: 3.5em;
+    margin-bottom: 4.1em;
     .contacts-link {
         .row;
         margin-bottom: 3em;
@@ -4396,12 +4548,13 @@ table {
                 margin-top: 30px;
             }
         }
-        @media @mb {
-            border-top: 1px solid @border;
-            padding-top: 15px;
-        }
         h2 {
             letter-spacing: normal;
+            @media @mb {
+                border-bottom: 1px solid @border;
+                padding-bottom: 14px;
+                margin-bottom: 18px;
+            }
         }
         .contacts-row__quote {
             letter-spacing: normal;
@@ -4439,6 +4592,9 @@ table {
                 line-height: 1.33;
                 margin: 0 0 15px;
                 color: @black;
+                @media @mb {
+                    font-size: 16px;
+                }
             }
             .title {
                 font-size: 10px;
@@ -4508,6 +4664,9 @@ table {
         top: 20px;
         right: 20px;
         font-size: 18px;
+        @media @mb {
+            font-size: 14px;
+        }
     }
     .reveal-phones__list {
         .row;
@@ -4521,6 +4680,7 @@ table {
                 width: 100%;
                 border: 1px solid @border;
                 padding: 10px 14px;
+                margin-bottom: 10px;
                 &.red {
                     border-color: @red;
                     a.small {
@@ -4593,6 +4753,11 @@ table {
         padding: 18px 20px;
         line-height: 1;
         margin-top: 10px;
+        &:hover {
+            border-color: @green;
+            background: @green;
+            color: @wht;
+        }
     }
     h2 {
         font-size: 30px;
@@ -4795,6 +4960,9 @@ table {
 }
 .datepicker-panel > ul > li.highlighted {
     background: @green;
+    &:hover {
+        background-color: @hoverGreen;
+    }
 }
 .datepicker-panel > ul > li.picked, .datepicker-panel > ul > li.picked:hover {
     color: @wht;
@@ -4827,3 +4995,7 @@ table {
 }
 
 /* Scrollbar end */
+
+.ui-loader {
+    display: none!important;
+}

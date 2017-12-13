@@ -75,21 +75,24 @@ $(document).ready(function () {
                     }
                     li = that._renderItemData(ul, item);
                     if (item.category) {
-                        li.attr("aria-label", item.category + " : " + item.label);
+                        li.attr({
+                            "aria-label": item.category + " : " + item.label,
+                            'data-href': item.href
+                        });
                     }
                 });
             }
         });
         var data = [
-            {label: "Хирург", category: "Специализация"},
-            {label: "Невролог", category: "Специализация"},
-            {label: "Отоларинголог", category: "Специализация"},
-            {label: "Проктолог", category: "Специализация"},
-            {label: "Эстетическая хирургия", category: "Направление"},
-            {label: "Неврология", category: "Направление"},
-            {label: "Прием отолоринголога", category: "Направление"},
-            {label: "Прием проктолога", category: "Направление"},
-            {label: "Хирургия", category: "Направление"}
+            {label: "Хирург", category: "Специализация", href: '/address.html'},
+            {label: "Невролог", category: "Специализация", href: '/address.html'},
+            {label: "Отоларинголог", category: "Специализация", href: '/address.html'},
+            {label: "Проктолог", category: "Специализация", href: '/address.html'},
+            {label: "Эстетическая хирургия", category: "Направление", href: '/address.html'},
+            {label: "Неврология", category: "Направление", href: '/address.html'},
+            {label: "Прием отолоринголога", category: "Направление", href: '/address.html'},
+            {label: "Прием проктолога", category: "Направление", href: '/address.html'},
+            {label: "Хирургия", category: "Направление", href: '/address.html'}
         ];
 
         $("#search").catcomplete({
@@ -128,7 +131,8 @@ $(document).ready(function () {
     if ($('.text-slider').ex()) {
         $('.text-slider__slides').slick({
             prevArrow: '.text-slider__prev',
-            nextArrow: '.text-slider__next'
+            nextArrow: '.text-slider__next',
+            swipe: false
         });
     }
 
@@ -138,6 +142,7 @@ $(document).ready(function () {
             slidesToShow: 2,
             prevArrow: '.blog-slider__prev',
             nextArrow: '.blog-slider__next',
+            swipe: false,
             responsive: [
                 {
                     breakpoint: 767,
@@ -171,14 +176,26 @@ $(document).ready(function () {
 
 
     /* Инициализация datepicker */
-    $(function () {
-        $('[data-toggle="datepicker"]').datepicker({
-            autoHide: true,
-            zIndex: 2048,
-            language: 'ru-RU',
-            weekStart: 1
+    if (!device.mobile()) {
+        $(function () {
+            $('[data-toggle="datepicker"]').datepicker({
+                autoHide: true,
+                zIndex: 2048,
+                language: 'ru-RU',
+                weekStart: 1
+            });
         });
-    });
+    } else {
+        $(function () {
+            $('[data-toggle="datepicker"]').datepicker({
+                autoHide: true,
+                zIndex: 2048,
+                language: 'ru-RU',
+                weekStart: 1,
+                offset: '-200'
+            });
+        });
+    }
 
     /* Стилизация скроллбара */
     if ($('.scrollbar-inner').ex()) {
@@ -210,7 +227,7 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.text-slider').find('.text-slider__controls--counter i').text(+$this.find('.slick-current').attr('data-slick-index') + 1);
     $this.closest('.text-slider').find('.text-slider__controls--text').text($this.find('.slick-current').attr('data-text'));
-}).on('click touchstart', '.show-more-doctors', function (e) {
+}).on('click tap', '.show-more-doctors', function (e) {
     if (e.handled === false)
         return;
     e.stopPropagation();
@@ -219,7 +236,8 @@ $(document).ready(function () {
     var $this = $(this);
     $this.closest('.doctors-list__item').find('.doctors-hidden-text').slideToggle();
     $this.find('span').toggleText('Подробнее', 'Скрыть');
-}).on('touchstart click', '.partners-show-all', function (e) {
+    $this.find('i').toggleClass('rotate');
+}).on('tap click', '.partners-show-all', function (e) {
     if (!flag) {
         flag = true;
         setTimeout(function () {
@@ -228,9 +246,10 @@ $(document).ready(function () {
         var $this = $(this);
         $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
         $this.find('span').toggleText('Показать еще', 'Скрыть');
+        $this.find('i').toggleClass('rotate');
     }
     return false;
-}).on('click touchstart', '.dropdown-pane ul li a', function (e) {
+}).on('click tap', '.dropdown-pane ul li a', function (e) {
     if (e.handled === false)
         return;
     e.stopPropagation();
@@ -244,27 +263,29 @@ $(document).ready(function () {
     var $this = $(this);
     $this.find('i').toggleClass('icon-search-header icon-close');
     $('.hidden-search').slideToggle();
+    $('#searchHid').focus();
     e.preventDefault();
-}).on('touchstart', '.with-hidden-mb .title', function () {
+}).on('tap', '.with-hidden-mb .title', function () {
     var $this = $(this);
     $this.closest('ul').find('li').not($this).slideToggle();
     $this.find('i').toggleClass('rotated');
-}).on('touchstart', '.mobile-menu__show', function (e) {
+}).on('tap', '.mobile-menu__show', function (e) {
     var $this = $(this);
     $('body').toggleClass('stop');
     $('.mobile-nav').toggleClass('is-open');
     $this.toggleClass('relative');
     $this.find('i').toggleClass('icon-burger icon-close');
+    $('.header').toggleClass('mobile-menu-open');
     e.preventDefault();
-}).on('touchstart', '.toggle-filter', function () {
+}).on('tap', '.toggle-filter', function () {
     var $this = $(this);
     $('.direction-category__filter').toggle();
     $('body').toggleClass('stop');
-}).on('touchstart', '.close-filter', function () {
+}).on('tap', '.close-filter', function () {
     var $this = $(this);
     $('.direction-category__filter').toggle();
     $('body').toggleClass('stop');
-}).on('touchstart', '.price-block__item', function (e) {
+}).on('tap', '.price-block__item', function (e) {
     var $this = $(this);
     if (!$(e.target).is('a')) {
         $this.closest('.price-block__item').find('.right').slideToggle();
@@ -273,4 +294,16 @@ $(document).ready(function () {
 }).on('click', '.js-focus__search', function (e) {
     $('#search').focus();
     e.preventDefault();
+}).on('focusin', '.search-block input', function () {
+    var $this = $(this);
+    $this.closest('.search-block').not('.main').find('form').css('border-color', '#10a554');
+}).on('focusout', '.search-block input', function () {
+    var $this = $(this);
+    $this.closest('.search-block').not('.main').find('form').css('border-color', '#dddddd');
+}).on('click', '.disabled', function (e) {
+    e.preventDefault();
+    return false;
+}).on('click tap', '.ui-menu-item', function () {
+    var $this = $(this);
+    location.href = $this.attr('data-href');
 });
