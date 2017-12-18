@@ -815,6 +815,30 @@ a {
 }
 .header .header-bottom .header-buttons a[aria-expanded="true"] {
   color: #10a554;
+  position: relative;
+}
+.header .header-bottom .header-buttons a[aria-expanded="true"]:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: 11;
+}
+.header .header-bottom .header-buttons a.active {
+  position: relative;
+}
+.header .header-bottom .header-buttons a.active:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  z-index: 11;
 }
 .header .header-bottom .header-buttons a:last-child {
   border-right: 1px solid #dddddd;
@@ -1486,7 +1510,7 @@ a {
 }
 .search-block.small-padding {
   padding: 0;
-  margin: 0 0 2.5em;
+  margin: 30px 0 2.5em;
 }
 @media (max-width: 767px) {
   .search-block.small-padding {
@@ -1908,6 +1932,9 @@ a {
   font-weight: 700;
   margin: 0 0 5px;
 }
+.address-list .address-list__block .title:hover {
+  color: #10a554;
+}
 @media (max-width: 767px) {
   .address-list .address-list__block .title {
     font-size: 16px;
@@ -2018,6 +2045,7 @@ a {
 }
 .map-block.address {
   margin-bottom: 45px;
+  margin-top: 30px;
 }
 @media (max-width: 767px) {
   .map-block.address {
@@ -2026,7 +2054,7 @@ a {
 }
 .news-block {
   letter-spacing: -0.4em;
-  padding: 80px 0;
+  padding: 60px 0 80px;
 }
 @media (max-width: 767px) {
   .news-block {
@@ -2039,7 +2067,7 @@ a {
   }
 }
 .news-block.list {
-  padding: 0 0 60px;
+  padding: 10px 0 60px;
 }
 @media (max-width: 767px) {
   .news-block.list {
@@ -2070,7 +2098,7 @@ a {
   margin-bottom: 10px;
 }
 .news-block.equipment {
-  padding: 0 0 20px;
+  padding: 10px 0 20px;
 }
 .news-block.polling {
   padding: 13px 0 20px;
@@ -2248,7 +2276,7 @@ a {
   margin: 0 0 1.5em;
 }
 .text-page.left p:last-child {
-  margin: 0 0 3.5em;
+  margin: 0 0 1.5em;
 }
 .text-page h1 {
   font-size: 40px;
@@ -2312,6 +2340,9 @@ a {
   .text-page p img {
     margin-bottom: 1.7em;
   }
+}
+.text-page p.first-img img {
+  margin-top: 10px;
 }
 .text-page p + p img {
   margin-top: 15px;
@@ -2558,7 +2589,7 @@ a {
 .text-page form .form-row .form-cell {
   display: inline-block;
   letter-spacing: normal;
-  vertical-align: middle;
+  vertical-align: top;
   position: relative;
 }
 .text-page form .form-row .form-cell:first-child {
@@ -2582,10 +2613,12 @@ a {
 .text-page form .form-row .form-cell p {
   margin: 0;
   line-height: 1.2;
+  padding: 15px 0;
 }
 @media (max-width: 767px) {
   .text-page form .form-row .form-cell p {
     font-weight: 700;
+    padding: 0;
   }
 }
 .text-page form .form-row .form-cell p.is-focus {
@@ -2598,7 +2631,7 @@ a {
 .text-page form .form-row .form-cell .dropdown-pane ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0!important;
 }
 .text-page form .form-row .form-cell .dropdown-pane ul li {
   margin: 0;
@@ -2671,7 +2704,7 @@ a {
   -webkit-appearance: none;
   -moz-appearance: none;
   box-shadow: none;
-  height: 60px;
+  height: 50px;
   border: 1px solid #dddddd;
   margin-bottom: 0px;
 }
@@ -2789,6 +2822,14 @@ a {
 }
 .text-page .price-block {
   margin-bottom: 3.5em;
+}
+.text-page .price-block:last-child {
+  margin-bottom: 70px;
+}
+@media (max-width: 767px) {
+  .text-page .price-block:last-child {
+    margin-bottom: 40px;
+  }
 }
 .accordion {
   margin: 0 0 2.5em;
@@ -3296,6 +3337,7 @@ table tbody tr:nth-child(even) {
   display: block;
   font-size: 18px;
   margin: 0 0 14px;
+  font-family: 'PT Serif', serif;
 }
 .doctor-card .doctor-card__txt .doctor-card__info {
   font-size: 14px;
@@ -3423,7 +3465,7 @@ table tbody tr:nth-child(even) {
   border-right-color: #313131;
 }
 .review-block {
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
 }
 @media (max-width: 767px) {
   .review-block {
@@ -3765,7 +3807,7 @@ table tbody tr:nth-child(even) {
   }
 }
 .price-block h2 {
-  margin: 0 0 20px;
+  margin: 50px 0 20px;
 }
 @media (max-width: 767px) {
   .price-block h2 {
@@ -4159,7 +4201,6 @@ table tbody tr:nth-child(even) {
   color: #a7a7a7;
   padding: 0;
   padding: 6px 0;
-  margin-bottom: -1px;
 }
 @media (max-width: 767px) {
   .direction-category .direction-category__category .tabs .tabs-title a {
@@ -4168,6 +4209,9 @@ table tbody tr:nth-child(even) {
 }
 .direction-category .direction-category__category .tabs .tabs-title a:hover {
   border-bottom-color: transparent;
+}
+.direction-category .direction-category__category .tabs .tabs-title a:focus {
+  background: transparent;
 }
 .direction-category .direction-category__category .tabs .tabs-title.is-active a {
   background: transparent;
@@ -4346,6 +4390,9 @@ table tbody tr:nth-child(even) {
   .direction-category .direction-category__category .direction-category__list ul li + .title {
     margin-top: 20px;
   }
+}
+.direction-category .direction-category__category .doctors-list .doctors-list__item .doctors-list__item--txt .name {
+  text-decoration: none;
 }
 .direction-category .direction-category__filter {
   width: 280px;
@@ -4801,7 +4848,7 @@ table tbody tr:nth-child(even) {
   margin-top: 15px;
 }
 .pagination.news {
-  margin-top: 5px;
+  margin: 5px 0;
 }
 .pagination.doctors {
   margin-top: 0;
@@ -4848,8 +4895,14 @@ table tbody tr:nth-child(even) {
   color: #313131;
   font-size: 18px;
 }
-.pagination li:hover {
+.pagination li a:hover {
+  background: transparent;
+}
+.pagination li:not(.ellipsis):hover {
   background: #dddddd;
+}
+.pagination li.current:hover {
+  background: #10a554;
 }
 .contacts {
   margin-bottom: 4.1em;
@@ -4909,6 +4962,7 @@ table tbody tr:nth-child(even) {
   font-size: 18px;
   line-height: 1.67;
   max-width: 800px;
+  margin-bottom: 23px;
 }
 @media (max-width: 767px) {
   .contacts .contacts-row .contacts-row__quote {
@@ -4970,6 +5024,14 @@ table tbody tr:nth-child(even) {
 .contacts .contacts-row .contacts-cell p + .title,
 .contacts .contacts-row .contacts-cell a + .title {
   margin-top: 15px;
+}
+.contacts .contacts-row .contacts-cell p.decorated,
+.contacts .contacts-row .contacts-cell a.decorated {
+  text-decoration: underline;
+}
+.contacts .contacts-row .contacts-cell p.decorated:hover,
+.contacts .contacts-row .contacts-cell a.decorated:hover {
+  text-decoration: none;
 }
 .contacts .contacts-row .contacts-cell .contacts-cell__link {
   letter-spacing: -0.4em;
@@ -5124,8 +5186,7 @@ table tbody tr:nth-child(even) {
 }
 .reveal .reveal-callback:hover {
   border-color: #10a554;
-  background: #10a554;
-  color: #fff;
+  color: #10a554;
 }
 .reveal h2 {
   font-size: 30px;
@@ -5162,6 +5223,11 @@ table tbody tr:nth-child(even) {
   display: inline-block;
   letter-spacing: normal;
   vertical-align: top;
+}
+@media (max-width: 767px) {
+  .reveal form.check-form div {
+    width: 100%;
+  }
 }
 .reveal form.check-form div.full {
   width: 100%;

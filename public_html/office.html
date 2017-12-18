@@ -8,7 +8,6 @@
 
         <!-- SCRIPT -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><!-- Jquery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script> <!-- Jquery mobile -->
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!-- Jquery UI -->
         <script src="js/what-input.js"></script><!-- Plugin for foundation -->
         <script src="js/foundation.min.js"></script><!-- Foundation -->
@@ -21,6 +20,8 @@
         <script src="js/jquery.menu-aim.js"></script><!-- Menu like Amazon -->
         <script src="js/datepicker.js"></script><!-- Datepicker -->
         <script src="js/datepicker.ru-RU.js"></script><!-- Datepicker russian -->
+        <script src="js/jquery.scrollbar.min.js"></script><!-- Scrollbar style -->
+        <script src="js/jquery.tap.js"></script><!-- Tap event -->
         <script src="js/main.js"></script>
         <!-- SCRIPT END -->
 
@@ -330,7 +331,11 @@
                     var center = {lat: 60.006784, lng: 30.254512};
                     var map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 10,
-                        center: center
+                        center: center,
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                        streetViewControl: false,
+                        zoomControl: false
                     });
                     var panorama = new google.maps.StreetViewPanorama(
                             document.getElementById('pano'), {

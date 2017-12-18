@@ -245,7 +245,7 @@ $(document).ready(function () {
         }, 100);
         var $this = $(this);
         $this.closest('.partners-list__item').find('.partners-hidden-text').slideToggle();
-        $this.find('span').toggleText('Показать еще', 'Скрыть');
+        $this.find('span').toggleText('Подробнее', 'Скрыть');
         $this.find('i').toggleClass('rotate');
     }
     return false;
@@ -264,6 +264,7 @@ $(document).ready(function () {
     $this.find('i').toggleClass('icon-search-header icon-close');
     $('.hidden-search').slideToggle();
     $('#searchHid').focus();
+    $this.toggleClass('active');
     e.preventDefault();
 }).on('tap', '.with-hidden-mb .title', function () {
     var $this = $(this);
@@ -293,6 +294,7 @@ $(document).ready(function () {
     }
 }).on('click', '.js-focus__search', function (e) {
     $('#search').focus();
+    $(document).scrollTop($('#search').offset().top - 300);
     e.preventDefault();
 }).on('focusin', '.search-block input', function () {
     var $this = $(this);
