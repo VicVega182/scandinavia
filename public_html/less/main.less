@@ -455,6 +455,7 @@ a {
             .header-logo {
                 .green {
                     display: inline-block;
+                    text-decoration: underline;
                 }
             }
         }
@@ -613,6 +614,9 @@ a {
                 }
                 & + .header-phones__item, & + .header-callback {
                     margin-left: 40px;
+                    @media @xs {
+                        margin-left: 30px;
+                    }
                 }
                 a {
                     font-size: 18px;
@@ -1417,6 +1421,9 @@ a {
             list-style: none;
             margin: 0;
             padding: 0 180px 40px 90px;
+            @media @mb {
+                padding: 0 0 20px;
+            }
             .ui-autocomplete-category {
                 font-size: 10px;
                 font-weight: 700;
@@ -1431,6 +1438,9 @@ a {
                     line-height: 1.56;
                     cursor: pointer;
                     position: relative;
+                    @media @mb {
+                        font-size: 14px;
+                    }
                     &:hover {
                         color: @green;
                         &:before {
@@ -1477,6 +1487,19 @@ a {
         @media @mb {
             border-top: 1px solid @border;
             margin: 0 0 1.25em;
+        }
+    }
+    &.main {
+        form {
+            @media @tab {
+                input {
+                    padding: 0 40px 0 20px;
+                }
+            }
+            i {
+                left: inherit;
+                right: 30px;
+            }
         }
     }
     form {
@@ -1531,6 +1554,9 @@ a {
             top: 26px;
             &:hover {
                 background: @hoverGreen;
+            }
+            @media @tab {
+                display: none;
             }
             @media @mb {
                 display: none;
@@ -1594,6 +1620,22 @@ a {
         }
         .toggle-filter {
             display: none;
+            @media @tab {
+                display: block;
+                right: 0;
+                position: absolute;
+                top: 1px;
+                padding: 0 30px;
+                height: 100px;
+                line-height: 100px;
+                border-left: 1px solid @border;
+                text-align: center;
+                background: @wht;
+                i {
+                    color: @black;
+                    position: static;
+                }
+            }
             @media @mb {
                 display: block;
                 right: 0;
@@ -1989,6 +2031,9 @@ a {
 .news-block {
     .row;
     padding: 60px 0 80px;
+    @media @tab {
+        padding: 60px 0 35px;
+    }
     @media @mb {
         padding: 10px 0 0;
     }
@@ -2044,6 +2089,13 @@ a {
         margin-right: 26px;
         &:nth-child(4n) {
             margin-right: 0;
+        }
+        @media @tab {
+            width: ~'calc(50% - 13px)';
+            margin-bottom: 44px;
+            &:nth-child(even) {
+                margin-right: 0;
+            }
         }
         @media @mb {
             width: 100%;
@@ -2239,7 +2291,7 @@ a {
         img {
             margin-bottom: 0.7em;
             @media @mb {
-                margin-bottom: 1.7em;
+                margin-bottom: 0.7em;
             }
         }
         &.first-img {
@@ -2254,6 +2306,9 @@ a {
         }
         & + .text-slider {
             margin-top: 40px;
+            @media @mb {
+                margin-top: 20px;
+            }
         }
     }
     dfn {
@@ -2676,6 +2731,9 @@ a {
     }
     .price-block {
         margin-bottom: 3.5em;
+        @media @mb {
+            margin-bottom: 2em;
+        }
         &:last-child {
             margin-bottom: 70px;
             @media @mb {
@@ -3612,6 +3670,7 @@ table {
         .row;
         border: 1px solid @border;
         padding: 25px 30px;
+        outline: none;
         @media @mb {
             padding: 16px 14px;
         }
@@ -3832,7 +3891,8 @@ table {
         width: ~'calc(100% - 280px)';
         padding-right: 20px;
         @media @tab {
-            padding-right: 10px;
+            width: 100%;
+            padding-right: 0;
         }
         @media @mb {
             width: 100%;
@@ -3849,6 +3909,11 @@ table {
                     margin-bottom: 10px;
                     & + .price-block__item {
                         border-top: 1px solid @border;
+                        &:hover {
+                            @media @mb {
+                                border-top: 1px solid @orange;
+                            }
+                        }
                     }
                 }
             }
@@ -4097,6 +4162,17 @@ table {
     .direction-category__filter {
         width: 280px;
         border: 1px solid @border;
+        @media @tab {
+            display: none;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background: @wht;
+        }
         @media @mb {
             display: none;
             position: fixed;
@@ -4110,14 +4186,38 @@ table {
         }
         .mobile-title {
             display: none;
+            position: relative;
+            padding: 20px 16px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+            border-bottom: 1px solid @border;
+            @media @tab {
+                display: block;
+            }
             @media @mb {
                 display: block;
-                position: relative;
-                padding: 20px 16px;
-                font-size: 20px;
-                font-weight: 700;
-                line-height: 1.3;
-                border-bottom: 1px solid @border;
+            }
+        }
+        .clear-filter {
+            display: none;
+            border-bottom: 1px solid @border;
+            padding: 10px 16px;
+            @media @tab {
+                display: block;
+            }
+            @media @mb {
+                display: block;
+            }
+            a {
+                .inline;
+                color: @gray;
+                font-size: 14px;
+                line-height: 2.57;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
             }
         }
         .close-filter {
@@ -4134,6 +4234,22 @@ table {
             z-index: 2;
             i {
                 color: @black;
+            }
+        }
+        .scroll-element {
+            @media @tab {
+                display: none;
+            }
+            @media @mb {
+                display: none;
+            }
+        }
+        form {
+            @media @tab {
+                height: ~'calc(100% - 175px)';
+            }
+            @media @mb {
+                height: ~'calc(100% - 175px)';
             }
         }
         .first-row {
@@ -4163,6 +4279,20 @@ table {
             padding: 25px 15px;
             text-align: center;
             border-top: 1px solid @border;
+            @media @tab {
+                padding: 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+            @media @mb {
+                padding: 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
             input {
                 background: @green;
                 color: @wht;
@@ -4176,9 +4306,15 @@ table {
                 &:hover {
                     background: @hoverGreen;
                 }
+                @media @tab {
+                    width: 100%;
+                    display: block;
+                    margin: 0 auto;
+                }
                 @media @mb {
                     display: block;
                     margin: 0 auto;
+                    width: 100%;
                 }
             }
             a {
@@ -4188,6 +4324,12 @@ table {
                 line-height: 2.57;
                 text-decoration: underline;
                 margin-top: 10px;
+                @media @tab {
+                    display: none;
+                }
+                @media @mb {
+                    display: none;
+                }
                 &:hover {
                     text-decoration: none;
                 }
@@ -4213,11 +4355,8 @@ table {
             margin-right: 0;
         }
         @media @tab {
-            width: ~'calc(33.33% - 16.66px)';
-            &:nth-child(4n) {
-                margin-right: 25px;
-            }
-            &:nth-child(3n) {
+            width: ~'calc(50% - 12.5px)';
+            &:nth-child(even) {
                 margin-right: 0;
             }
         }
@@ -4356,15 +4495,6 @@ table {
         &:nth-child(3n) {
             margin-right: 0;
         }
-        @media @tab {
-            width: ~'calc(50% - 12.5px)';
-            &:nth-child(3n) {
-                margin-right: 25px;
-            }
-            &:nth-child(even) {
-                margin-right: 0;
-            }
-        }
         @media @mb {
             .row;
             width: 100%;
@@ -4375,6 +4505,9 @@ table {
         .doctors-list__item--img {
             height: 390px;
             margin: 0 0 14px;
+            @media @tab {
+                height: auto;
+            }
             @media @mb {
                 width: 100px;
                 height: 140px;

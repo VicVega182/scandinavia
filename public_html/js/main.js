@@ -202,6 +202,14 @@ $(document).ready(function () {
         $('.scrollbar-inner').scrollbar();
     }
 
+    /* Подмена плейсхолдеров */
+    if ($('[data-short]').ex() && device.tablet() || device.mobile()) {
+        $('[data-short]').each(function () {
+            var $this = $(this);
+            $this.attr('placeholder', $this.attr('data-short'));
+        });
+    }
+
 }).on('change.zf.tabs', '#address', function () {
     /* Меняем плашку на карте/список на главной при переключении */
     var $this = $(this);
@@ -210,11 +218,11 @@ $(document).ready(function () {
     /* Фиксированный хидер при скролле */
     var $this = $(this);
     var header = $('.header');
-    if ($this.scrollTop() >= header.outerHeight() && !$fixed && !device.mobile()) {
+    if ($this.scrollTop() >= header.outerHeight() && !$fixed && !device.mobile() && !device.tablet()) {
         header.addClass('fixed');
         $('body').css('padding-top', header.outerHeight() + "px");
         $fixed = true;
-    } else if ($this.scrollTop() < header.outerHeight() && $fixed && !device.mobile()) {
+    } else if ($this.scrollTop() < header.outerHeight() && $fixed && !device.mobile() && !device.tablet()) {
         header.removeClass('fixed');
         $('body').css('padding-top', "0px");
         $fixed = false;
@@ -263,8 +271,12 @@ $(document).ready(function () {
     var $this = $(this);
     $this.find('i').toggleClass('icon-search-header icon-close');
     $('.hidden-search').slideToggle();
-    $('#searchHid').focus();
     $this.toggleClass('active');
+    if ($this.hasClass('active')) {
+        $('#searchHid').focus();
+    } else {
+        $('#searchHid').blur();
+    }
     e.preventDefault();
 }).on('tap', '.with-hidden-mb .title', function () {
     var $this = $(this);
@@ -296,7 +308,7 @@ $(document).ready(function () {
     $('#search').focus();
     $(document).scrollTop($('#search').offset().top - 300);
     e.preventDefault();
-}).on('focusin', '.search-block input', function () {
+}).on('focusin', '.search-block input', function (e) {
     var $this = $(this);
     $this.closest('.search-block').not('.main').find('form').css('border-color', '#10a554');
 }).on('focusout', '.search-block input', function () {
