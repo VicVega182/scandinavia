@@ -210,10 +210,14 @@ $(document).ready(function () {
         });
     }
 
-}).on('change.zf.tabs', '#address', function () {
+}).on('change.zf.tabs', '#address', function (e) {
     /* Меняем плашку на карте/список на главной при переключении */
     var $this = $(this);
+    var parent = $this.closest('.address-block');
     $this.toggleClass('removeShadow');
+    if (device.mobile() && parent.find('#panel2').hasClass('is-active')) {
+        $('html, body').animate({scrollTop: $('.address-block').offset().top}, 500);
+    }
 }).on('scroll', document, function () {
     /* Фиксированный хидер при скролле */
     var $this = $(this);
@@ -320,4 +324,7 @@ $(document).ready(function () {
 }).on('click tap', '.ui-menu-item', function () {
     var $this = $(this);
     location.href = $this.attr('data-href');
+}).on('tap', '.has-tip', function () {
+    var $this = $(this);
+    $this.foundation('show');
 });
